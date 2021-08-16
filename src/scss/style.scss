@@ -1,0 +1,26 @@
+@import "base/reset";
+@import "base/var";
+@import "base/typography";
+@import "base/icomoon";
+@import "base/form";
+@import "base/buttons";
+@import "base/inputs";
+@import "components/layout";
+@import "components/about";
+@import "components/nav";
+@import "components/top";
+@import "components/contact";
+@import "components/post";
+@import "components/porfolio";
+@import "components/testimonials";
+@import "components/footer";
+@import "components/blog-list";
+@import "components/article";
+
+.svg__sprite {
+  height: 0;
+  width: 0;
+  position: absolute;
+  left: -1000px;
+  top: -1000px;
+}

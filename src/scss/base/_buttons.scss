@@ -1,0 +1,55 @@
+a {
+  text-decoration: none;
+}
+
+.btn {
+  border: 1px solid $color1;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 25px;
+  height: 45px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: transparent;
+  padding: 0 24px;
+  font-family: $font;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: $color1;
+
+  &.color {
+    background-color: $color7;
+    color: $color2;
+
+  }
+  &:hover {
+    background-color: $color4;
+    color: $color2;
+  }
+}
+
+.flip {
+  box-sizing: border-box;
+  height: 45px;
+  width: 45px;
+  border: 1px solid $color1;
+  border-radius: 5px;
+  background-color: $color2;
+  cursor: pointer;
+}
+
+@mixin placeholder-color($color) {
+  &::-webkit-input-placeholder { /* WebKit browsers */
+    color: $color;
+  }
+  &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: $color;
+  }
+  &::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: $color;
+  }
+  &:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: $color;
+  }
+}

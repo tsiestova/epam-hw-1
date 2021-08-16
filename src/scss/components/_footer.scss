@@ -1,0 +1,56 @@
+.footer {
+  background: $section-background;
+  border-top: 1px solid $color16;
+  grid-row: 3;
+  z-index: 1;
+
+  .header__logo {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &.sticky {
+    position: sticky;
+    bottom: 0;
+  }
+
+  .layout {
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    @include breakpoint(tablet) {
+      padding-top: 0;
+      padding-bottom: 0;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: $section-background;
+      height: 100%;
+    }
+  }
+
+  .social-media {
+    text-align: center;
+
+    li {
+      margin: 0 11px;
+
+      @include breakpoint(tablet) {
+        margin: 0 22px 0 0;
+      }
+    }
+
+    @include breakpoint(tablet) {
+      text-align: left;
+    }
+  }
+}
+
+.footer_text {
+  text-align: center;
+
+  @include breakpoint(tablet) {
+    text-align: left;
+  }
+}
