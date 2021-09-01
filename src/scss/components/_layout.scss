@@ -1,0 +1,23 @@
+.layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+
+  @include breakpoint(tablet) {
+    padding: 0 20px;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+main {
+  @include breakpoint(tablet) {
+    display: grid;
+    max-width: 1440px;
+    min-height: 100%;
+    margin: auto;
+    grid-template-rows: 100px auto 71px;
+  }
+}

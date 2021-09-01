@@ -1,0 +1,103 @@
+@font-face {
+  font-family: "icomoon";
+  src: url(../assets/fonts/iconmoon/icomoon.woff?i4qmpo) format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+%text-h5 {
+  font-size: 15px;
+  line-height: 25px;
+  color: $color1;
+}
+
+%text-h4 {
+  font-size: 17px;
+  line-height: 28px;
+  color: $color1;
+}
+
+%text-h3 {
+  font-size: 20px;
+  line-height: 32px;
+  color: $color1;
+  font-weight: 500;
+}
+
+%text-h2 {
+  font-size: 24px;
+  line-height: 39px;
+  color: $color1;
+  font-weight: 600;
+}
+
+%text-h1 {
+  font-size: 28px;
+  line-height: 45px;
+  color: $color1;
+  font-weight: 600;
+}
+
+.content {
+  font-family: $font;
+  margin: 0 0 54px;
+
+  h5 {
+    @extend %text-h5;
+  }
+
+  h4 {
+    @extend %text-h4;
+  }
+
+  h3 {
+    @extend %text-h3;
+  }
+
+  h2 {
+    @extend %text-h2;
+  }
+
+  h1 {
+    @extend %text-h1;
+  }
+
+  q {
+    margin-bottom: 38px;
+    border-left: 5px solid $color11;
+    display: block;
+    padding: 8px 0 8px 26px;
+  }
+}
+
+.text-h5 {
+  @extend %text-h5;
+}
+
+.text-h4 {
+  @extend %text-h4;
+}
+
+.text-h3 {
+  @extend %text-h3;
+}
+
+.text-h2 {
+  @extend %text-h2;
+}
+
+.text-h1 {
+  @extend %text-h1;
+}
+
+.steps-item_heading {
+  font-weight: bold;
+}
+
+
+.hidden-list_item  {
+  &:hover {
+
+  }
+}

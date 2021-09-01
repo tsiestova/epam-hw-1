@@ -1,0 +1,415 @@
+.section__post-article {
+  text-align: justify;
+}
+
+.post-likes_wrap {
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+}
+
+.section__post {
+  .layout {
+    display: flex;
+  }
+}
+
+.section__post-latest-post {
+  flex-shrink: 0;
+  background-color: $color17;
+}
+
+.input {
+  @include placeholder-color($color1);
+}
+
+.section__blog-person-name_inner {
+
+}
+
+.flex-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.data-box_inner {
+  display: inline-block;
+}
+
+.rating-list_inner,
+.section__blog-person-name_inner {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.left-align {
+  text-align: left;
+}
+
+article {
+  color: $color1;
+  padding: 22px 5px 0 5px;
+
+  p {
+    line-height: 1.6;
+    margin-bottom: 5px;
+  }
+}
+
+.section__blog-person-info_inner {
+  position: relative;
+  border-radius: 5px;
+}
+
+.section__blog-item_inner {
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+.section__post-review {
+  position: relative;
+  padding: 27px 0 0 3px;
+
+  @include breakpoint(tablet) {
+
+
+    &:after {
+      content: "";
+      width: 2px;
+      height: 80%;
+      background: $color16;
+      position: absolute;
+      left: 43px;
+      top: 95px;
+    }
+  }
+
+  .btn {
+    &:last-child {
+      margin-bottom: 50px;
+    }
+  }
+
+  .section__blog-person-info {
+    padding: 10px 10px 10px 23px;
+  }
+
+  .section__blog-person-name {
+    margin-right: 8px;
+    font-weight: bold;
+  }
+}
+
+.line {
+  height: 100%;
+  width: 2px;
+  background: $color16;
+  position: absolute;
+  left: 5px;
+  top: 31px;
+
+  &:before {
+    content: "";
+  }
+}
+
+.link {
+  border-bottom: 1px solid $color1;
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+.data-box_inner {
+  position: relative;
+  color: $color6;
+
+  &:before {
+    @extend .icon;
+    @extend .icon-a-icon-time;
+    display: inline-block;
+    color: black;
+    font-size: 14px;
+    margin-right: 5px;
+  }
+}
+
+.section__post-heading {
+  &.text-h2 {
+    font-size: 25px;
+    line-height: 1.5;
+    letter-spacing: -1.1px;
+    margin: 0 0 25px;
+  }
+}
+
+.section__post-categories-box {
+  border-radius: 5px;
+  background-color: $color17;
+}
+
+.section__post-categories-item {
+  position: relative;
+  border-bottom: 1px solid $color11;
+  padding: 17px;
+  display: block;
+}
+
+.input-accordion {
+  display: none;
+}
+
+.hidden-list {
+  display: none;
+}
+
+input[type="checkbox"] {
+  &:checked ~ .hidden-list {
+    display: block;
+  }
+}
+
+
+.label-accordion {
+  display: block;
+  position: relative;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:before {
+    @extend .icon;
+    @extend .icon-a-icon-arrow;
+    position: absolute;
+    right: 5px;
+  }
+}
+
+.hidden-list_item {
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+.hidden-list_item {
+  &:hover {
+    cursor: pointer;
+    color: $color1;
+  }
+}
+
+.section__post-tags-box,
+.section__latest-post-box {
+  background-color: $color17;
+}
+
+
+.section-columns-wrap {
+
+  @include breakpoint(tablet) {
+    display: flex;
+    align-items: start;
+  }
+
+  .sections-wrap {
+    @include breakpoint(tablet) {
+      max-width: 668px;
+      width: 100%;
+      margin: 0 37px 0 0;
+      flex-shrink: 0;
+    }
+  }
+
+  .assids-wrap {
+
+    @include breakpoint(tablet) {
+      width: calc(100% - 668px);
+    }
+  }
+}
+
+.section__blog-item_video_inner {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.section__tags-categories-item {
+  border-radius: 5px;
+  display: inline-block;
+  padding: 5px 0;
+  margin: 0px 5px;
+
+  a {
+    text-decoration: none;
+    padding: 12px 12px;
+  }
+}
+
+.section__tags-categories-list {
+  padding: 10px;
+}
+
+.section__blog-item_audio_inner {
+  margin-bottom: 16px;
+}
+
+
+.section__post-review-header {
+  margin: 0 0 61px;
+
+  .section__blog-item {
+    overflow: auto;
+  }
+}
+
+.assids-wrap {
+  margin-top: 191px;
+}
+
+.btn-like {
+  background: none;
+  border: none;
+  display: inline-block;
+
+  &:before {
+    @extend .icon;
+    @extend .icon-a-icon-like-1;
+    font-size: 21px;
+    margin-right: 10px;
+  }
+
+  //&:hover {
+  //  background-color: $color4;
+  //  color: $color2;
+  //}
+}
+
+.section__post-likes {
+  position: relative;
+  display: inline-block;
+}
+
+
+.section__blog-person_photo_inner {
+  height: 80px;
+  width: 80px;
+  position: relative;
+  z-index: 1;
+
+}
+
+.section__latest-post-item {
+  @extend %flex-wrap;
+  margin-bottom: 24px;
+
+  figure {
+    max-width: 50%;
+    flex-shrink: 0;
+    margin-right: 20px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.section__latest-post-heading {
+  margin-bottom: 28px;
+  font-size: 22px;
+}
+
+.section__latest-post-subheading {
+  letter-spacing: 0.6px;
+  line-height: 1.5;
+  margin-bottom: 19px;
+}
+
+.section__latest-post-list {
+  border-radius: 5px;
+}
+
+aside {
+  margin-bottom: 73px;
+  padding: 24px 14px 24px 31px;
+  position: relative;
+
+  .aside-heading {
+    border-bottom: 1px solid $color11;
+    padding: 10px;
+  }
+}
+
+.person-review {
+  .section__blog-person-text {
+    margin-top: 7px;
+    text-align: justify;
+    font-size: 15px;
+    margin-bottom: 17px;
+    min-width: 100%;
+  }
+}
+
+.link-wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.section__blog-item_inner {
+  overflow: inherit;
+
+  &:last-child {
+    &:after {
+      content: "";
+      width: 2px;
+      height: 80%;
+      background: $color16;
+      position: absolute;
+      left: 43px;
+      top: 95px;
+    }
+  }
+}
+
+.section__post-article-link {
+  &:hover {
+    cursor: url('../assets/pic/hand-cursor-dark.svg'), auto;
+  }
+}
+
+.section__blog-item_inner {
+  &:first-of-type {
+    position: relative;
+
+    &:before {
+      content: "";
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      position: absolute;
+      left: 31px;
+      top: -50px;
+      z-index: 1;
+      border: 1px solid $color16;
+    }
+  }
+
+  &:last-of-type {
+    position: relative;
+
+    &:before {
+      content: "";
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      position: absolute;
+      left: 32px;
+      bottom: -44px;
+      z-index: 1;
+      border: 1px solid $color16;
+    }
+  }
+}
+

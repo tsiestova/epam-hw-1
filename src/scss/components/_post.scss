@@ -1,0 +1,124 @@
+.section__posts-heading {
+  margin-bottom: 14px;
+}
+
+.section__posts-text {
+  max-width: 461px; 
+  margin: auto auto 58px;
+}
+
+.gallery-item {
+  text-align: left;
+}
+
+.section__posts {
+  margin-bottom: 80px;
+
+  .gallery-item__heading {
+    margin-bottom: 5px;
+  } 
+
+  .gallery-item__text {
+    max-height: 102px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+  }
+
+  .text-wrap {
+    max-height: 102px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: justify;
+    margin-bottom: 17px;
+  }
+
+  figure {
+    margin-bottom: 20px;
+  }
+
+  .gallery-item__text {
+    letter-spacing: 0.2px;
+  }
+}
+
+.gallery-list {
+  font-size: 0;
+
+  a {
+    &:hover {
+      cursor: url(../assets/pic/hand-cursor-dark.svg);
+    }
+  }
+
+  @include breakpoint(tablet) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+  }
+}
+
+.data-box {
+
+  .time {
+    margin-right: 10px;
+    color: $color6;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 13px;
+  }
+
+  .comments {
+    margin-left: 5px;
+    color: $color6;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 13px;
+
+    &:before {
+      @extend .icon;
+      @extend .icon-a-icon-comment;
+      margin-right: 5px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  .dot {
+    position: relative;
+    margin-right: 10px;
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    color: $color6;
+    font-size: 13px;
+
+    &:after {
+      content: "";
+      height: 3px;
+      width: 3px;
+      background-color: $color6;
+      position: absolute;
+      top: 10px;
+      left: -14px;
+    }
+  }
+}
+
+.section__tags-categories-list {
+  a {
+    &:hover {
+      cursor: url('../assets/pic/hand-cursor-dark.svg'), auto;
+    }
+  }
+}
+
+
+.hidden-list_item {
+  a {
+    color: $color1;
+    &:hover {
+      cursor: url('../assets/pic/hand-cursor-dark.svg'), auto;
+    }
+  }
+}

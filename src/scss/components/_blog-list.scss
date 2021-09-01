@@ -1,0 +1,230 @@
+
+.section__blog-item {
+
+  @include breakpoint(tablet) {
+    display: flex;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 47px;
+    font-size: 0;
+    position: relative;
+
+  }
+
+  &:hover {
+    border-radius: 1px;
+    background-color: $color2;
+    box-shadow: 0 2px 20px 7px rgba(131, 131, 131, 0.5);
+  }
+
+  .btn {
+    &:hover {
+      cursor: url('../assets/pic/hand-cursor-dark.svg'), auto;
+    }
+  }
+}
+
+.section__blog-item {
+  &:last-child {
+    box-shadow: none;
+  }
+}
+
+.section__blog {
+  padding-top: 25px;
+
+  .btn {
+    margin-bottom: 20px;
+  }
+}
+
+.section__blog-input-wrap {
+  text-align: right;
+  margin-bottom: 29px;
+}
+
+.section__blog-item_video {
+
+  @include breakpoint(tablet) {
+    width: 48.3%;
+    flex-shrink: 0;
+  }
+}
+
+audio {
+  max-width: 250px;
+
+  @include breakpoint(tablet) {
+    width: 100%;
+  }
+}
+
+.section__blog-person-info_wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 21px;
+}
+
+.section__blog-person_photo {
+  height: 52px;
+  width: 52px;
+  position: relative;
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.section__blog-person-name {
+  font-weight: 500;
+}
+
+.section__blog-person-text {
+  margin-bottom: 30px;
+  letter-spacing: -0.4px;
+  max-width: 87%;
+  line-height: 1.6;
+}
+
+.section__blog-person-info {
+
+  .btn {
+    margin-bottom: 20px;
+  }
+}
+
+.section__blog-person-heading {
+  margin-bottom: 8px;
+}
+
+.section__blog-person-info {
+  background-color: $color17;
+  text-align: left;
+  padding: 23px 10px 5px 43px;
+}
+
+.section__blog-person_photo {
+  margin-right: 11px;
+}
+
+.section__blog-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.section__blog {
+  .section__blog-heading {
+    margin-bottom: 55px
+  }
+}
+
+.section__blog-input-wrap {
+  position: relative;
+}
+
+.input-search {
+  &:before {
+    @extend .icon;
+    @extend .icon-a-icon-search-1;
+    font-size: 20px;
+    color: $color1;
+    position: absolute;
+    right: 11px;
+    top: 13px;
+  }
+}
+
+.rating-list {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.rating-item {
+  display: inline-block;
+  vertical-align: middle;
+
+  &:before {
+    @extend .icon;
+    @extend .icon-star-1;
+    font-size: 12px;
+    color: $color3;
+  }
+
+  &.full {
+    &:before {
+      color: $color8;
+    }
+  }
+}
+
+.search-wrap {
+  text-align: right;
+}
+
+.section__blog-input-wrap {
+  display: inline-block;
+  width: 100%;
+  max-width: 319px;
+  font-size: 15px;
+}
+
+%section-blog-pic {
+  font-size: 15px;
+  color: $color3;
+  top: 0;
+  right: 0;
+  position: absolute;
+  border: 3px solid $color2;
+  border-radius: 5px;
+  background-color: $color17;
+  padding: 13px;
+
+  @include breakpoint(tablet) {
+    font-size: 44px;
+  }
+}
+
+.section__blog-person-info_video {
+  position: relative;
+
+  &:before {
+    @extend .icon;
+    @extend .icon-a-icon-playmini;
+    @extend %section-blog-pic;
+  }
+}
+
+.section__blog-person-info_music {
+  position: relative;
+
+  &:before {
+    @extend .icon;
+    @extend .icon-a-icon-melody;
+    @extend %section-blog-pic;
+  }
+}
+
+.section__blog-person-info_pic {
+  position: relative;
+
+  &:before {
+    @extend .icon;
+    @extend .icon-a-icon-picture;
+    @extend %section-blog-pic;
+  }
+}
+
+.section__blog-person-info_notes {
+
+  &:before {
+    @extend .icon;
+    @extend .icon-a-icon-text;
+    @extend %section-blog-pic;
+  }
+}
+
