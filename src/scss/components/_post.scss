@@ -45,6 +45,12 @@
 .gallery-list {
   font-size: 0;
 
+  a {
+    &:hover {
+      cursor: url(../assets/pic/hand-cursor-dark.svg);
+    }
+  }
+
   @include breakpoint(tablet) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -95,6 +101,14 @@
       position: absolute;
       top: 10px;
       left: -14px;
+    }
+  }
+}
+
+.section__tags-categories-list {
+  a {
+    &:hover {
+      cursor: url('../assets/pic/hand-cursor-dark.svg'), auto;
     }
   }
 }

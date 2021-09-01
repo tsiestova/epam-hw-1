@@ -1,5 +1,19 @@
+.social-media {
+  li {
+    cursor: pointer;
+  }
+}
+
 .section__about {
   margin-bottom: 79px;
+
+  &:before {
+    display: block;
+    content: " ";
+    margin-top: -110px;
+    height: 110px;
+    visibility: hidden;
+  }
 }
 
 .section__about-grid {
@@ -7,7 +21,7 @@
   grid-row-gap: 20px;
 
   @include breakpoint(tablet) {
-  grid-template-columns: 262px 1fr;
+    grid-template-columns: 262px 1fr;
     grid-template-rows: repeat(3, 184px);
     grid-column-gap: 36px;
   }
@@ -29,18 +43,32 @@
   justify-content: center;
   margin: auto;
   position: relative;
-  clip-path: url(#with-right-top-corner);
+  
+  &:after {
+    content: '';
+    background-image: url('../assets/pic/corner.svg');
+    position: absolute;
+    width: 41px;
+    height: 41px;
+    top: 0;
+    right: -3px;
+  }
 
   &:nth-child(even) {
-    clip-path: url(#with-left-top-corner);
+    &:after {
+      content: '';
+      background-image: url('../assets/pic/corner.svg');
+      position: absolute;
+      width: 41px;
+      height: 41px;
+      top: 0px;
+      left: -3px;
+      transform: scaleX(-1);
+    }
   }
 
   &.typography {
-    background: linear-gradient(
-      108.56deg,
-      rgba(230, 246, 65, 0.5) 0%,
-      rgba(41, 252, 154, 0.5) 100%
-    );
+    background: linear-gradient(to right, #d6d385, #b4d495);
     border-radius: 3%;
     overflow: hidden;
 
@@ -53,11 +81,7 @@
 
   &.icon {
     grid-row: 2;
-    background: linear-gradient(
-      236.77deg,
-      rgba(247, 247, 247, 0.5) 0%,
-      rgba(35, 86, 255, 0.5) 100%
-    );
+    background: linear-gradient(to right, #c4d8fb, #96b5fd);
 
     &:before {
       @extend .icon;
@@ -70,11 +94,7 @@
 
   &.accurate {
     grid-row: 3;
-    background: linear-gradient(
-      236.42deg,
-      rgba(255, 255, 255, 0.5) 0%,
-      rgba(255, 9, 9, 0.5) 100%
-    );
+    background: linear-gradient(to right, #ff8282, #ffa4a4);
 
     &:before {
       @extend .icon;
@@ -160,3 +180,4 @@
 .section__about-sub-heading {
   margin-bottom: 58px;
 }
+

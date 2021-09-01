@@ -1,5 +1,5 @@
 .section__post-article {
-text-align: justify;
+  text-align: justify;
 }
 
 .post-likes_wrap {
@@ -98,7 +98,6 @@ article {
   }
 
 
-
   .btn {
     &:last-child {
       margin-bottom: 50px;
@@ -178,10 +177,10 @@ article {
 }
 
 input[type="checkbox"] {
-  &:checked ~.hidden-list {
-      display: block;
-    }
+  &:checked ~ .hidden-list {
+    display: block;
   }
+}
 
 
 .label-accordion {
@@ -234,6 +233,7 @@ input[type="checkbox"] {
       flex-shrink: 0;
     }
   }
+
   .assids-wrap {
 
     @include breakpoint(tablet) {
@@ -349,11 +349,9 @@ aside {
   }
 }
 
-
 .link-wrap {
   display: flex;
   justify-content: flex-end;
-
 }
 
 .section__blog-item_inner {
@@ -368,5 +366,4 @@ aside {
       top: 95px;
     }
   }
-
 }

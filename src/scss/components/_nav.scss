@@ -1,5 +1,5 @@
 %active-link {
-  font-weight: 600;
+  //font-weight: 600;
   border-bottom: 2px solid $color1;
 }
 
@@ -20,20 +20,64 @@
   margin-left: 35px;
   letter-spacing: 0.2px;
   border-bottom: 2px solid transparent;
+  color: $color6;
+  position: relative;
 
-  @include breakpoint(tablet) {
-  }
+  a {
+    cursor: pointer;
 
-  &.active {
-    @extend %active-link;
-  }
+    &:after {
+      &:hover {
+        content: attr(data-value);
+        font-weight: bold;
+      }
+      //content: attr(data-value);
+      ////display: block;
+      //height: 0;
+      //color: transparent;
+      //left: -1px;
+      //top: 1px;
+      //position: absolute;
+      //opacity: 0;
+      ////font-weight: bold;
+      //opacity: 0;
+      //content: attr(data-value);
+      //display: block;
+      ////visibility: hidden;
+      ////height: 0;
+      //color: transparent;
+      //font-weight: bold;
+    }
 
-  &:hover {
-    @extend %active-link;
-  }
+    &.active {
+      font-weight: bold;
+      &:before {
 
-  &:active {
-    @extend %active-link;
+      }
+
+      &:after {
+        @extend %active-link;
+        color: $color1;
+        opacity: 1;
+      }
+    }
+
+    &:hover {
+      font-weight: bold;
+      border-bottom: 1px;
+
+      &:before {
+        opacity: 0;
+
+      }
+
+      &:after {
+        @extend %active-link;
+        font-weight: bold;
+        opacity: 1;
+      }
+    }
+
   }
 }
 

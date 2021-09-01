@@ -15,14 +15,24 @@
           <div class="header__logo text-h4">BlogWorld</div>
           <nav class="header__nav-menu">
             <ul>
-              <li class="header__nav-item"><a class="text-h5">Home</a></li>
-              <li class="header__nav-item"><a class="text-h5">Portfolio</a></li>
-              <li class="header__nav-item active">
-                <a class="text-h5">Blog</a>
+              <li class="header__nav-item">
+                <a class="text-h5" href="#home" data-value="Home">Home</a>
               </li>
-              <li class="header__nav-item"><a class="text-h5">Pages</a></li>
-              <li class="header__nav-item"><a class="text-h5">About</a></li>
-              <li class="header__nav-item"><a class="text-h5">Contact</a></li>
+              <li class="header__nav-item">
+                <a class="text-h5" data-value="Portfolio" href="#portfolio">Portfolio</a>
+              </li>
+              <li class="header__nav-item">
+                <a class="text-h5 active" data-value="Blog">Blog</a>
+              </li>
+              <li class="header__nav-item">
+                <a class="text-h5" data-value="Pages">Pages</a>
+              </li>
+              <li class="header__nav-item">
+                <a class="header__nav-item_about text-h5" data-value="About" href="#about">About</a>
+              </li>
+              <li class="header__nav-item">
+                <a class="text-h5" data-value="Contact" href="#contact">Contact</a>
+              </li>
             </ul>
           </nav>
         </div>
@@ -266,9 +276,15 @@
       <footer class="footer footer-inner">
         <div class="layout">
           <ul class="social-media">
-            <li class="facebook"><a href="#"></a></li>
-            <li class="instagram"><a href="#"></a></li>
-            <li class="dribble"><a href="#"></a></li>
+            <li>
+              <a target="_blank" class="facebook" href="https://www.facebook.com/"></a>
+            </li>
+            <li>
+              <a target="_blank" class="instagram" href="https://www.instagram.com/"></a>
+            </li>
+            <li>
+              <a target="_blank" class="dribble" href="https://dribbble.com/"></a>
+            </li>
           </ul>
           <div class="header__logo text-h4">BlogWorld</div>
           <div class="footer_text text-h5">&copy; 2019 All Rights Reserved.</div>
