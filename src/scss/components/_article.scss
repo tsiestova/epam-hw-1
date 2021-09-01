@@ -72,18 +72,51 @@ article {
   position: relative;
   padding: 27px 0 0 3px;
 
+  //&:first-of-type {
+  //  position: relative;
+  //
+  //  &:after {
+  //    content: "";
+  //    width: 17px;
+  //    height: 17px;
+  //    border-radius: 50%;
+  //    position: absolute;
+  //    left: 34px;
+  //    top: 77px;
+  //    z-index: 1;
+  //    border: 1px solid $color16;
+  //  }
+  //}
+  //
+  //&:last-of-type {
+  //  position: relative;
+  //
+  //  &:before {
+  //    content: "";
+  //    width: 17px;
+  //    height: 17px;
+  //    border-radius: 50%;
+  //    position: absolute;
+  //    left: 34px;
+  //    bottom: 98px;
+  //    z-index: 1;
+  //    border: 1px solid $color16;
+  //  }
+  //}
+
   @include breakpoint(tablet) {
-    &:before {
-      content: "";
-      width: 17px;
-      height: 17px;
-      border-radius: 50%;
-      position: absolute;
-      left: 34px;
-      top: 77px;
-      z-index: 1;
-      border: 1px solid $color16;;
-    }
+
+    //&:before {
+    //  content: "";
+    //  width: 17px;
+    //  height: 17px;
+    //  border-radius: 50%;
+    //  position: absolute;
+    //  left: 34px;
+    //  top: 77px;
+    //  z-index: 1;
+    //  border: 1px solid $color16;
+    //}
 
 
     &:after {
@@ -270,22 +303,32 @@ input[type="checkbox"] {
 
 .section__post-review-header {
   margin: 0 0 61px;
+
+  .section__blog-item {
+    overflow: auto;
+  }
 }
 
 .assids-wrap {
   margin-top: 191px;
 }
 
-.section__post-likes {
-  position: relative;
-
+.btn-like {
   &:before {
     @extend .icon;
     @extend .icon-a-icon-like-1;
     font-size: 21px;
     margin-right: 10px;
-
   }
+
+  &:hover {
+    background-color: $color4;
+    color: $color2;
+  }
+}
+
+.section__post-likes {
+  position: relative;
 }
 
 
@@ -355,6 +398,8 @@ aside {
 }
 
 .section__blog-item_inner {
+  overflow: inherit;
+
   &:last-child {
     &:after {
       content: "";
@@ -367,3 +412,44 @@ aside {
     }
   }
 }
+
+.section__post-article-link {
+  &:hover {
+    cursor: url('../assets/pic/hand-cursor-dark.svg'), auto;
+  }
+}
+
+.section__blog-item_inner {
+  &:first-of-type {
+    position: relative;
+
+    &:before {
+      content: "";
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      position: absolute;
+      left: 31px;
+      top: -50px;
+      z-index: 1;
+      border: 1px solid $color16;
+    }
+  }
+
+  &:last-of-type {
+    position: relative;
+
+    &:before {
+      content: "";
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      position: absolute;
+      left: 32px;
+      bottom: -44px;
+      z-index: 1;
+      border: 1px solid $color16;
+    }
+  }
+}
+
