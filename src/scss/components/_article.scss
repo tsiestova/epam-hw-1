@@ -72,51 +72,7 @@ article {
   position: relative;
   padding: 27px 0 0 3px;
 
-  //&:first-of-type {
-  //  position: relative;
-  //
-  //  &:after {
-  //    content: "";
-  //    width: 17px;
-  //    height: 17px;
-  //    border-radius: 50%;
-  //    position: absolute;
-  //    left: 34px;
-  //    top: 77px;
-  //    z-index: 1;
-  //    border: 1px solid $color16;
-  //  }
-  //}
-  //
-  //&:last-of-type {
-  //  position: relative;
-  //
-  //  &:before {
-  //    content: "";
-  //    width: 17px;
-  //    height: 17px;
-  //    border-radius: 50%;
-  //    position: absolute;
-  //    left: 34px;
-  //    bottom: 98px;
-  //    z-index: 1;
-  //    border: 1px solid $color16;
-  //  }
-  //}
-
   @include breakpoint(tablet) {
-
-    //&:before {
-    //  content: "";
-    //  width: 17px;
-    //  height: 17px;
-    //  border-radius: 50%;
-    //  position: absolute;
-    //  left: 34px;
-    //  top: 77px;
-    //  z-index: 1;
-    //  border: 1px solid $color16;
-    //}
 
 
     &:after {
@@ -129,7 +85,6 @@ article {
       top: 95px;
     }
   }
-
 
   .btn {
     &:last-child {
@@ -314,6 +269,10 @@ input[type="checkbox"] {
 }
 
 .btn-like {
+  background: none;
+  border: none;
+  display: inline-block;
+
   &:before {
     @extend .icon;
     @extend .icon-a-icon-like-1;
@@ -321,14 +280,15 @@ input[type="checkbox"] {
     margin-right: 10px;
   }
 
-  &:hover {
-    background-color: $color4;
-    color: $color2;
-  }
+  //&:hover {
+  //  background-color: $color4;
+  //  color: $color2;
+  //}
 }
 
 .section__post-likes {
   position: relative;
+  display: inline-block;
 }
 
 

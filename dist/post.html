@@ -15,14 +15,24 @@
           <div class="header__logo text-h4">BlogWorld</div>
           <nav class="header__nav-menu">
             <ul>
-              <li class="header__nav-item"><a class="text-h5">Home</a></li>
-              <li class="header__nav-item"><a class="text-h5">Portfolio</a></li>
-              <li class="header__nav-item active">
-                <a class="text-h5">Blog</a>
+              <li class="header__nav-item">
+                <a class="text-h5" href="#home" data-value="Home">Home</a>
               </li>
-              <li class="header__nav-item"><a class="text-h5">Pages</a></li>
-              <li class="header__nav-item"><a class="text-h5">About</a></li>
-              <li class="header__nav-item"><a class="text-h5">Contact</a></li>
+              <li class="header__nav-item">
+                <a class="text-h5" data-value="Portfolio" href="#portfolio">Portfolio</a>
+              </li>
+              <li class="header__nav-item">
+                <a class="text-h5 active" data-value="Blog">Blog</a>
+              </li>
+              <li class="header__nav-item">
+                <a class="text-h5" data-value="Pages">Pages</a>
+              </li>
+              <li class="header__nav-item">
+                <a class="header__nav-item_about text-h5" data-value="About" href="#about">About</a>
+              </li>
+              <li class="header__nav-item">
+                <a class="text-h5" data-value="Contact" href="#contact">Contact</a>
+              </li>
             </ul>
           </nav>
         </div>
@@ -145,7 +155,7 @@
                 People have always sought to make things easier, but more
                 effective. Digital area has already grown out a bit from regular
                 graphical navigation, and one of the most affordable
-                alternatives is the voice interface. However, it will replace
+                alternatives is the voice interface. However, it will <a  class="section__post-article-link" style="text-decoration: underline; font-weight: bold">replace</a>
                 not all the functions of the UI, but will only become an
                 intermediary between the user and the main function of the site.
                 Why? Here are some of the key arguments.
@@ -153,11 +163,20 @@
             </article>
 
             <div class="post-likes_wrap">
-              <div class="section__post-likes">75 likes</div>
+              <div>
+                <button type="button" class="btn-like"></button>
+                <div class="section__post-likes">75 likes</div>
+              </div>
               <ul class="social-media">
-                <li class="facebook"><a href="#"></a></li>
-                <li class="instagram"><a href="#"></a></li>
-                <li class="dribble"><a href="#"></a></li>
+                <li>
+                  <a target="_blank" class="facebook" href="https://www.facebook.com/"></a>
+                </li>
+                <li>
+                  <a target="_blank" class="instagram" href="https://www.instagram.com/"></a>
+                </li>
+                <li>
+                  <a target="_blank" class="dribble" href="https://dribbble.com/"></a>
+                </li>
               </ul>
             </div>
             <hr />
@@ -390,9 +409,9 @@
                     >Travel news (3))</label
                   >
                   <ul class="hidden-list">
-                    <li class="hidden-list_item text-h5">Hiking</li>
-                    <li class="hidden-list_item text-h5">Bicycle trip</li>
-                    <li class="hidden-list_item text-h5">Mountains trip</li>
+                    <li class="hidden-list_item text-h5"><a href="#">Hiking</a></li>
+                    <li class="hidden-list_item text-h5"><a href="#">Bicycle trip</a></li>
+                    <li class="hidden-list_item text-h5"><a href="#">Mountains trip</a></li>
                   </ul>
                 </li>
 
@@ -491,9 +510,15 @@
       <footer class="footer">
         <div class="layout">
           <ul class="social-media">
-            <li class="facebook"><a href="#"></a></li>
-            <li class="instagram"><a href="#"></a></li>
-            <li class="dribble"><a href="#"></a></li>
+            <li>
+              <a target="_blank" class="facebook" href="https://www.facebook.com/"></a>
+            </li>
+            <li>
+              <a target="_blank" class="instagram" href="https://www.instagram.com/"></a>
+            </li>
+            <li>
+              <a target="_blank" class="dribble" href="https://dribbble.com/"></a>
+            </li>
           </ul>
           <div class="header__logo text-h4">BlogWorld</div>
           <div class="footer_text text-h5">&copy; 2019 All Rights Reserved.</div>

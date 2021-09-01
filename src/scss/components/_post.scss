@@ -112,3 +112,13 @@
     }
   }
 }
+
+
+.hidden-list_item {
+  a {
+    color: $color1;
+    &:hover {
+      cursor: url('../assets/pic/hand-cursor-dark.svg'), auto;
+    }
+  }
+}
