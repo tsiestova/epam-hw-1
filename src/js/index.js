@@ -33,6 +33,12 @@ function validateTitle(title) {
   return 'VALID';
 }
 
+console.log(validateTitle('Title!'));
+console.log(validateTitle('s'));
+console.log(validateTitle('12title'));
+console.log(validateTitle('Title?'));
+console.log(validateTitle(false));
+
 //* ***********************************************************
 /**
  * @param {number|string} a
@@ -49,6 +55,11 @@ function sum(a, b) {
 
   return +string + number;
 }
+
+console.log(sum('25', 15));
+console.log(sum(41, '3'));
+console.log(sum('3', 45));
+console.log(sum('15', 15));
 
 //* ***********************************************************
 /**
@@ -93,3 +104,7 @@ function checkNumber(num) {
 
   return result;
 }
+
+
+console.log(checkNumber(7));
+console.log(checkNumber(-10));
