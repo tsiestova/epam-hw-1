@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "start": "webpack serve"
+    "start": "webpack serve",
+    "lint": "eslint src/js/",
+    "lint-fix": "eslint js/ --fix"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +28,8 @@
   "dependencies": {
     "image-minimizer-webpack-plugin": "^2.2.0",
     "mini-css-extract-plugin": "^2.2.0",
-    "sass": "^1.37.5"
+    "sass": "^1.37.5",
+    "eslint": "^7.32.0",
+    "eslint-config-google": "^0.14.0"
   }
 }
