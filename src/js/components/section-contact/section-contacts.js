@@ -1,16 +1,16 @@
 export class Contacts {
-    constructor() {
+    constructor(contacts) {
+        this.contacts = contacts;
     }
 
     render() {
         return `<section id="contact" class="section__contact text-center">
             <h2 class="section__contact-heading text-h2 bottom-line">
-                Contact us
+               ${this.contacts.title}
             </h2>
 
             <div class="section__contact-text text-center text-h4">
-                Put there articles successfully special warrant submit agree what
-                along then
+                 ${this.contacts.text}
             </div>
 
             <div class="layout">
