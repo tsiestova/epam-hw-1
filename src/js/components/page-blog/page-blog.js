@@ -3,24 +3,56 @@ export class Blog {
         this.blog = blog;
     }
 
+    // createItem (n) {
+    //     let i = 0;
+    //     let str = '';
+    //     while (i <= n ) {
+    //     str = 'fill';
+    //         i++;
+    //     }
+    //     return str;
+    // }
+
+    renderButton(type) {
+        let str = '';
+        switch(type) {
+            case 'video':
+                str = 'section__blog-person-info_video'
+                break;
+            case 'music':
+                str = 'section__blog-person-info_music'
+                break;
+            case 'pic':
+                str = 'section__blog-person-info_pic'
+                break;
+
+            default:
+                str = ''
+        }
+
+        return str;
+    }
+
     createItem(obj) {
         return ` <li class="section__blog-item">
-                        <figure class="section__blog-item_video video-button">
+                        ${obj.pic  ? 
+            `<figure class="section__blog-item_video  ${obj.type === 'video' ? 'video-button': ''}">
                             <img
                                 src="${obj.pic}"
                                 class="section__blog-image"
                                 alt="blog"
                             />
-                        </figure>
+                        </figure>` 
+            : ''}
                         <div
-                            class="
-                  section__blog-person-info section__blog-person-info_video
+                            class="section__blog-person-info
+                  ${this.renderButton(obj.type)}
                 "
                         >
                             <div class="section__blog-person-info_wrap">
                                 <figure class="section__blog-person_photo">
                                     <img
-                                        src="${obj.src}"
+                                        src="${obj.src}" 
                                         alt="person-photo"
                                     />
                                 </figure>
@@ -36,11 +68,8 @@ export class Blog {
                                         <span class="text-h5 dot">${obj.data.minuts}min read</span>
                                         <span class="text-h5 dot comments">${obj.data.comments}</span>
                                         <ul class="rating-list">
-                                            <li class="rating-item full"></li>
-                                            <li class="rating-item full"></li>
-                                            <li class="rating-item full"></li>
-                                            <li class="rating-item"></li>
-                                            <li class="rating-item"></li>
+                                           
+                                           
                                         </ul>
                                     </div>
                                 </div>
@@ -49,14 +78,25 @@ export class Blog {
                             <div class="section__blog-person-heading text-h3">
                                 ${obj.title}
                             </div>
+                            ${obj.type === 'music' ? 
+                                '<figure class="audio">' +
+                '                  <audio' +
+                '                    controls' +
+                '                    src="https://developer.mozilla.org/audio/media/cc0-audio/t-rex-roar.mp3"' +
+                '                  ></audio>' +
+                '                </figure>' :
+                            
+                            ''
+            
+                            }
+                            
                             <div class="section__blog-person-text text-h4">
                                  ${obj.text}
                             </div>
-                            <a href="#" class="btn">Read more</a>
+                            <a href="${obj.button.href}" class="${obj.button.type}">${obj.button.title}</a>
                         </div>
                     </li>`
     }
-
 
     createList() {
         return this.blog.card.map(el => this.createItem(el)).join('');
@@ -66,12 +106,13 @@ export class Blog {
         return `<section class="section__blog text-center">
             <div class="layout">
                 <h2 class="section__blog-heading text-h2 bottom-line">${this.blog.title}</h2>
+                
                 <div class="search-wrap">
                     <div class="section__blog-input-wrap input-search">
                         <input
                             type="search"
                             placeholder="Search by author"
-                            class="input"
+                            class="input" 
                         />
                     </div>
                 </div> 

@@ -1,65 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0'"
-    />
-    <title>Post</title>
-  </head>
-  <body>
-    <main>
-      <header class="header header-inner">
-        <div class="layout">
-          <div class="header__logo text-h4">BlogWorld</div>
-          <nav class="header__nav-menu">
-            <ul>
-              <li class="header__nav-item">
-                <a class="text-h5" href="#home" data-value="Home">Home</a>
-              </li>
-              <li class="header__nav-item">
-                <a class="text-h5" data-value="Portfolio" href="#portfolio">Portfolio</a>
-              </li>
-              <li class="header__nav-item">
-                <a class="text-h5 active" data-value="Blog">Blog</a>
-              </li>
-              <li class="header__nav-item">
-                <a class="text-h5" data-value="Pages">Pages</a>
-              </li>
-              <li class="header__nav-item">
-                <a class="header__nav-item_about text-h5" data-value="About" href="#about">About</a>
-              </li>
-              <li class="header__nav-item">
-                <a class="text-h5" data-value="Contact" href="#contact">Contact</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+export class Article {
+  constructor(article) {
+    this.article = article;
+  }
 
-      <div class="layout">
+  render() {
+    return ` <div class="layout">
         <div class="section-columns-wrap">
           <div class="sections-wrap">
             <article class="content">
               <h1 class="section__post-heading text-h2">
-                Fog up the river, where it flows among green aits and meadows
+                ${this.article.title}
               </h1>
-
+             
               <div class="section__blog-person-info_wrap">
                 <figure class="section__blog-person_photo">
                   <img src="assets/pic/person-photo2.png" alt="person-photo" />
                 </figure>
                 <div>
                   <div class="section__blog-person-name text-h4">
-                    Sarah Healy
+                   ${this.article.author}
                   </div>
                   <div class="data-box">
-                    <time datetime="2019-10-02" class="time text-h5"
+                    <time datetime="${this.article.data.time}" class="time text-h5"
                       >02 oct, 2019
                     </time>
-                    <span class="text-h5 dot">12 min read</span>
-                    <span class="text-h5 dot comments">4</span>
+                    <span class="text-h5 dot">${this.article.data.minuts} min read</span>
+                    <span class="text-h5 dot comments">${this.article.data.comments}</span>
                     <ul class="rating-list">
                       <li class="rating-item full"></li>
                       <li class="rating-item full"></li>
@@ -75,7 +41,7 @@
                 class="section__blog-item_video section__blog-item_video_inner"
               >
                 <img
-                  src="assets/pic/blog-img2.png"
+                  src="${this.article.src}"
                   class="section__blog-image"
                   alt="blog"
                 />
@@ -84,86 +50,14 @@
               <figure class="section__blog-item_audio_inner">
                 <audio
                   controls
-                  src="https://developer.mozilla.org/audio/media/cc0-audio/t-rex-roar.mp3"
+                  src="${this.article.pic}"
                 ></audio>
               </figure>
-            <div class="article">
-
-              <p>
-                The thing you’re doing now, reading prose on a screen, is going
-                out of fashion. The defining narrative of our online moment
-                concerns the decline of text, and the exploding reach and power
-                of audio and video.
-                <strong>Which come particular teens wasn't.</strong> Own day
-                designed suspension conflict unlawful. I'll stayed liable i've.
-                Interact minutes see night translate.
-              </p>
-              <br />
-              <p>
-                Number interact already promotion someone thought run same why
-                one it very. Fifteen problem friend editing away proprietary
-                words shivering shivered. Shivers special worried in waive this
-                we. Spider 13 house same avoid. Coffee including products
-                violation legs my defamatory predominantly important again
-                strictly. Including budgie we materials 17 hand harassing
-                calling offensive relating. Faints comes everyone this developed
-                specialises parties scream. Aren't stopped mean little me but
-                what lower problem. Can usually. Middle posts you sometimes can
-                yes that's rules breach.
-              </p>
-              <br />
-              <p>
-                Same took made faints aged. All Impersonating these.
-                <strong>Costs quite full make new.</strong> Well see does data
-                friend breach obliged scream no wasn't. Saw that's methods act.
-                Working approach users what over register. Think the. Perform
-                groups. In unacceptable by should off. About incitement rabbit
-                working temporarily that is against trademark herself might i'm.
-                Stopped Special stayed supply predominantly plastic in worldwide
-                hypnotised damaging further exercise. Refused reproduce furry
-                publicise week learners really decided text usernames racially
-                happened. Become come glass even see you uncommon eventually
-                relating fifteen.
-              </p>
-              <br />
-              <h2 class="text-h2">Techno Trends</h2>
-              <p>
-                This methods class of artificial intelligence is on everyone’s
-                lips. And all because it solves problems not directly, but by
-                learning in the process of performing many specific tasks.
-              </p>
-              <br />
-              <p>
-                With the help of machine learning, it is possible to
-                <s>increase manyfold</s> the work of websites and applications,
-                so, in the upcoming year such tasks as speech, face and visual
-                images recognition, process of diagnostics and results
-                prediction, analysis and sorting of large data volumes will
-                become even easier.
-              </p>
-              <br />
-              <p>
-                <q>
-                  <strong>Voice command is really very fast.</strong> A person
-                  does not need to learn how to navigate the graphical interface
-                  and how to use it for an intended purpose. We began to speak
-                  almost from birth, and this our skill is very well developed.
-                </q>
-                <br />
-              </p>
-              <h2>Interface trend</h2>
-              <p>
-                People have always sought to make things easier, but more
-                effective. Digital area has already grown out a bit from regular
-                graphical navigation, and one of the most affordable
-                alternatives is the voice interface. However, it will
-                <a  class="section__post-article-link" style="text-decoration: underline; font-weight: bold">replace</a>
-                not all the functions of the UI, but will only become an
-                intermediary between the user and the main function of the site.
-                Why? Here are some of the key arguments.
-              </p>
-
-            </div>
+              
+               <div class="article">
+               ${this.article.text}
+               </div>
+             
             </article>
 
             <div class="post-likes_wrap">
@@ -187,7 +81,7 @@
 
             <!--        Reviews-->
 
-            <section class="section__post-review text-center">
+           <section class="section__post-review text-center">
               <h2 class="text-h2 left-align section__post-review-header">Reviews</h2>
               <ul class="section__post_review-list">
                 <li class="section__post_review_item">
@@ -517,25 +411,6 @@
             </aside>
           </div>
         </div>
-      </div>
-
-      <footer class="footer">
-        <div class="layout">
-          <ul class="social-media">
-            <li>
-              <a target="_blank" class="facebook" href="https://www.facebook.com/"></a>
-            </li>
-            <li>
-              <a target="_blank" class="instagram" href="https://www.instagram.com/"></a>
-            </li>
-            <li>
-              <a target="_blank" class="dribble" href="https://dribbble.com/"></a>
-            </li>
-          </ul>
-          <div class="header__logo text-h4">BlogWorld</div>
-          <div class="footer_text text-h5">&copy; 2019 All Rights Reserved.</div>
-        </div>
-      </footer>
-    </main>
-  </body>
-</html>
+      </div>`;
+  }
+}
