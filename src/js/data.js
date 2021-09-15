@@ -172,7 +172,10 @@ export const data = {
 
     card: [
       {
-        stars: 3,
+        stars: {
+          n: 5,
+          full: 3
+        },
         type: "video",
         pic: "assets/pic/blog-img1.png",
         src: "assets/pic/person-photo1.png",
@@ -195,6 +198,10 @@ export const data = {
         },
       },
       {
+        stars: {
+          n: 5,
+          full: 3
+        },
         type: "music",
         pic: "assets/pic/blog-img2.png",
         src: "assets/pic/person-photo2.png",
@@ -214,6 +221,10 @@ export const data = {
         },
       },
       {
+        stars: {
+          n: 5,
+          full: 3
+        },
         type: "pic",
         pic: "assets/pic/blog-img3.png",
         src: "assets/pic/person-photo3.png",
@@ -235,6 +246,10 @@ export const data = {
         },
       },
       {
+        stars: {
+          n: 5,
+          full: 3
+        },
         src: "assets/pic/person-photo4.png",
         author: "Alex Zlatkus",
         title: "In the Future We Will All Live in Star Wars",

@@ -3,21 +3,6 @@ export class Blog {
     this.blog = blog;
   }
 
-  createRatingItem(n) {
-    let i = 1;
-    let str = "";
-
-    if (i <= n) {
-      str = `<li class="rating-item full"></li>`;
-      i++;
-    }
-
-    return str;
-  }
-
-  createRatingList() {
-    console.log(this.createRatingItem(this.blog.card.stars));
-  }
 
   renderButton(type) {
     let str = "";
@@ -84,7 +69,11 @@ export class Blog {
                                           obj.data.comments
                                         }</span>
                                         <ul class="rating-list">
-                                           ${this.createRatingList()}
+                                           <li class="rating-item full"></li>
+                        <li class="rating-item full"></li>
+                        <li class="rating-item full"></li>
+                        <li class="rating-item"></li>
+                        <li class="rating-item"></li>
                                        
                                         </ul>
                                     </div>
