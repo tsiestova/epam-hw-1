@@ -1,10 +1,10 @@
 export class Testimonials {
-    constructor(testimonials) {
-        this.testimonials = testimonials;
-    }
+  constructor(testimonials) {
+    this.testimonials = testimonials;
+  }
 
-    createItem(obj) {
-        return `<li class="section__testimonials-photo-item">
+  createItem(obj) {
+    return `<li class="section__testimonials-photo-item">
             <div class="section__testimonials-photo-box">
                 <q class="section__testimonials-text text-h4">
                     ${obj.q}
@@ -21,15 +21,15 @@ export class Testimonials {
             <figure class="section__testimonials-user-photo">
                 <img src="${obj.src}" alt="user-photo"/>
             </figure>
-        </li>`
-    }
+        </li>`;
+  }
 
-    createList() {
-        return this.testimonials.list.map(el => this.createItem(el)).join('');
-    }
+  createList() {
+    return this.testimonials.list.map((el) => this.createItem(el)).join("");
+  }
 
-    render() {
-        return ` <section class="section__testimonials text-center">
+  render() {
+    return ` <section class="section__testimonials text-center">
             <div class="layout">
                 <h2 class="
                 section__testimonials-heading
@@ -46,6 +46,6 @@ export class Testimonials {
                     <button class="flip right"></button>
                 </div>
             </div>
-        </section>`
-    }
+        </section>`;
+  }
 }

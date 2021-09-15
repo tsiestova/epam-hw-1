@@ -1,10 +1,10 @@
 export class Portfolio {
-    constructor(portfolio) {
-        this.portfolio = portfolio;
-    }
+  constructor(portfolio) {
+    this.portfolio = portfolio;
+  }
 
-    createGalleryItem(obj) {
-      return ` <li class="gallery__slider-item">
+  createGalleryItem(obj) {
+    return ` <li class="gallery__slider-item">
             <a href="#"> 
                 <figure>
                     <img src="${obj.src}" alt="gallery-image"/>
@@ -19,15 +19,17 @@ export class Portfolio {
                 </div>
                 <div class="gallery__slider-item-box"></div>
             </a>
-        </li>`
-    }
+        </li>`;
+  }
 
-    createGalleryList() {
-        return this.portfolio.galleryList.map(el => this.createGalleryItem(el)).join('');
-    }
-    
-    render() {
-        return `<section id="portfolio" class="section__portfolio text-center">
+  createGalleryList() {
+    return this.portfolio.galleryList
+      .map((el) => this.createGalleryItem(el))
+      .join("");
+  }
+
+  render() {
+    return `<section id="portfolio" class="section__portfolio text-center">
             <div class="layout">
                 <h2
                         class="section__portfolio-heading text-h2 text-center bottom-line">
@@ -48,8 +50,10 @@ export class Portfolio {
                     <button class="flip left"></button>
                     <button class="flip right"></button>
                 </div>
-                <a href="${this.portfolio.button.href}" class="${this.portfolio.button.type}"> ${this.portfolio.button.title} </a>
+                <a href="${this.portfolio.button.href}" class="${
+      this.portfolio.button.type
+    }"> ${this.portfolio.button.title} </a>
             </div>
         </section>`;
-    }
+  }
 }

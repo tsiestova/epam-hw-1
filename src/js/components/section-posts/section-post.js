@@ -1,10 +1,10 @@
 export class Post {
-    constructor(post) {
-        this.post = post;
-    }
+  constructor(post) {
+    this.post = post;
+  }
 
-    createGalleryItem(obj) {
-        return ` <li class="gallery-item">
+  createGalleryItem(obj) {
+    return ` <li class="gallery-item">
                             <a href="${obj.href}">
                                 <figure>
                                     <img src="${obj.src}" alt="gallery image"/>
@@ -25,16 +25,17 @@ export class Post {
                                     <span class="text-h5 dot comments">${obj.data.comments}</span>
                                 </div>
                             </a>
-                        </li>`
-    }
+                        </li>`;
+  }
 
-    createGalleryList() {
-        return this.post.galleryList.map(el => this.createGalleryItem(el)).join('');
-    }
+  createGalleryList() {
+    return this.post.galleryList
+      .map((el) => this.createGalleryItem(el))
+      .join("");
+  }
 
-
-    render() {
-        return `<section class="section__posts text-center">
+  render() {
+    return `<section class="section__posts text-center">
             <div class="layout">
                 <h2 class="section__posts-heading text-h2 text-center bottom-line">
                     ${this.post.title}
@@ -48,6 +49,6 @@ export class Post {
                     </ul>
                 </div>
             </div>
-        </section>`
-    }
+        </section>`;
+  }
 }

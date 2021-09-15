@@ -3,6 +3,64 @@ export class Article {
     this.article = article;
   }
 
+  createReviewsItem(obj) {
+    return `<li class="section__post_review_item">
+                  <div class="section__blog-item section__blog-item_inner">
+                    <figure class="section__blog-person_photo section__blog-person_photo_inner">
+                      <img src="${obj.src}" alt="person-photo" />
+                    </figure>
+
+                    <div class="section__blog-person-info_wrap">
+                      <div class="person-review">
+                        <div
+                                class="
+                        section__blog-person-info
+                        section__blog-person-info_inner
+                      "
+                        >
+                          <div class="flex-wrap">
+                            <div>
+                              <div
+                                      class="
+                              section__blog-person-name
+                              text-h4
+                              section__blog-person-name_inner
+                            "
+                              >
+                                ${obj.author}
+                              </div>
+                              <ul class="rating-list rating-list_inner">
+                                <li class="rating-item full"></li>
+                                <li class="rating-item full"></li>
+                                <li class="rating-item full"></li>
+                                <li class="rating-item"></li>
+                                <li class="rating-item"></li>
+                              </ul>
+                            </div>
+                            <div class="data-box data-box_inner">
+                              <span class="text-h5">${obj.time}</span>
+                            </div>
+                          </div>
+
+                          <div class="section__blog-person-text text-h4">
+                            ${obj.text}
+                          </div>
+                          <div class="link-wrap">
+                            <a href="${obj.button.href}" class="${obj.button.type}">${obj.button.title}</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>`;
+  }
+
+  createReviewsList() {
+    return this.article.reviews.reviewsList
+      .map((el) => this.createReviewsItem(el))
+      .join("");
+  }
+
   render() {
     return ` <div class="layout">
         <div class="section-columns-wrap">
@@ -21,11 +79,17 @@ export class Article {
                    ${this.article.author}
                   </div>
                   <div class="data-box">
-                    <time datetime="${this.article.data.time}" class="time text-h5"
+                    <time datetime="${
+                      this.article.data.time
+                    }" class="time text-h5"
                       >02 oct, 2019
                     </time>
-                    <span class="text-h5 dot">${this.article.data.minuts} min read</span>
-                    <span class="text-h5 dot comments">${this.article.data.comments}</span>
+                    <span class="text-h5 dot">${
+                      this.article.data.minuts
+                    } min read</span>
+                    <span class="text-h5 dot comments">${
+                      this.article.data.comments
+                    }</span>
                     <ul class="rating-list">
                       <li class="rating-item full"></li>
                       <li class="rating-item full"></li>
@@ -82,159 +146,12 @@ export class Article {
             <!--        Reviews-->
 
            <section class="section__post-review text-center">
-              <h2 class="text-h2 left-align section__post-review-header">Reviews</h2>
+              <h2 class="text-h2 left-align section__post-review-header">${
+                this.article.reviews.title
+              }</h2>
               <ul class="section__post_review-list">
-                <li class="section__post_review_item">
-                  <div class="section__blog-item section__blog-item_inner">
-                    <figure class="section__blog-person_photo section__blog-person_photo_inner">
-                      <img src="assets/pic/person-photo1.png" alt="person-photo" />
-                    </figure>
-
-                    <div class="section__blog-person-info_wrap">
-                      <div class="person-review">
-                        <div
-                                class="
-                        section__blog-person-info
-                        section__blog-person-info_inner
-                      "
-                        >
-                          <div class="flex-wrap">
-                            <div>
-                              <div
-                                      class="
-                              section__blog-person-name
-                              text-h4
-                              section__blog-person-name_inner
-                            "
-                              >
-                                Jack Johnson
-                              </div>
-                              <ul class="rating-list rating-list_inner">
-                                <li class="rating-item full"></li>
-                                <li class="rating-item full"></li>
-                                <li class="rating-item full"></li>
-                                <li class="rating-item"></li>
-                                <li class="rating-item"></li>
-                              </ul>
-                            </div>
-                            <div class="data-box data-box_inner">
-                              <span class="text-h5">10 min ago</span>
-                            </div>
-                          </div>
-
-                          <div class="section__blog-person-text text-h4">
-                            Knowledge nay estimable questions repulsive daughters
-                            boy. Solicitude gay way unaffected expression for. His
-                            mistress ladyship required off horrible disposed
-                            rejoiced…
-                          </div>
-                          <div class="link-wrap">
-                            <a href="#" class="link text-h5">Read more</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li class="section__post_review_item">
-                  <div class="section__blog-item section__blog-item_inner">
-                    <figure class="section__blog-person_photo section__blog-person_photo_inner">
-                      <img src="assets/pic/person-photo2.png" alt="person-photo" />
-                    </figure>
-
-                    <div class="section__blog-person-info_wrap">
-                      <div class="person-review">
-                        <div
-                                class="
-                        section__blog-person-info
-                        section__blog-person-info_inner
-                      "
-                        >
-                          <div class="flex-wrap">
-                            <div>
-                              <div
-                                      class="
-                              section__blog-person-name
-                              text-h4
-                              section__blog-person-name_inner
-                            "
-                              >
-                                Emma Garcia
-                              </div>
-                              <ul class="rating-list rating-list_inner">
-                                <li class="rating-item full"></li>
-                                <li class="rating-item full"></li>
-                                <li class="rating-item full"></li>
-                                <li class="rating-item"></li>
-                                <li class="rating-item"></li>
-                              </ul>
-                            </div>
-                            <div class="data-box data-box_inner">
-                              <span class="text-h5">10 min ago</span>
-                            </div>
-                          </div>
-
-                          <div class="section__blog-person-info_wrap"></div>
-
-                          <div class="section__blog-person-text text-h4">
-                            Dummy text refers to the bits of content that are used to fill a website mock-up. This text helps web designers better envision how the website will look as a finished product. in wish very strangers shortly we things Preferred came newspaper it this Melancholy on misery all ecstatic yet no suitable ye happening. Own over these Can Could Garden offering to ago Winter Home or took answered him be right He other in about check has situation fine you held against found am be Nay entire pleasure will there in wholly forming much rapid though want ye weeks up whole an ye thus might remarkably Rich why need pianoforte ask get face prudent it so Evil
-                          </div>
-                          <div class="link-wrap">
-                            <a href="#" class="link text-h5">Read more</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li class="section__post_review_item">
-                  <div class="section__blog-item section__blog-item_inner">
-                    <figure class="section__blog-person_photo section__blog-person_photo_inner">
-                      <img src="assets/pic/person-photo3.png" alt="person-photo" />
-                    </figure>
-                    <div class="section__blog-person-info_wrap">
-                      <div class="person-review">
-                        <div
-                                class="
-                        section__blog-person-info
-                        section__blog-person-info_inner
-                      "
-                        >
-                          <div class="flex-wrap">
-                            <div>
-                              <div
-                                      class="
-                              section__blog-person-name
-                              text-h4
-                              section__blog-person-name_inner
-                            "
-                              >
-                                Ann Moore
-                              </div>
-                              <ul class="rating-list rating-list_inner">
-                                <li class="rating-item full"></li>
-                                <li class="rating-item full"></li>
-                                <li class="rating-item full"></li>
-                                <li class="rating-item"></li>
-                                <li class="rating-item"></li>
-                              </ul>
-                            </div>
-                            <div class="data-box data-box_inner">
-                              <span class="text-h5">10 min ago</span>
-                            </div>
-                          </div>
-
-                          <div class="section__blog-person-text text-h4">
-                            Any delicate you how kindness horrible outlived
-                            servants. You high bed wish help call draw side. Girl
-                            quit if case mr sing as no have. At none neat am do over
-                            will. Polite do object at passed it is.
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
+                ${this.createReviewsList()}
+           
               </ul>
 
               <a href="#" class="btn">More comments</a>

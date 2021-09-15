@@ -1,14 +1,13 @@
-
 /**
  * @class
  */
 export class Footer {
-    constructor(navigation) {
-        this.navigation = navigation;
-    }
+  constructor(navigation) {
+    this.navigation = navigation;
+  }
 
-    render() {
-        return `
+  render() {
+    return `
     <footer class="footer sticky">
         <div class="layout">
             <ul class="social-media">
@@ -26,5 +25,5 @@ export class Footer {
             <div class="footer_text text-h5">&copy; 2019 All Rights Reserved.</div>
         </div>
     </footer>`;
-    }
+  }
 }

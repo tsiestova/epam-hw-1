@@ -1,6 +1,7 @@
 /**
  * @class
  */
+
 export class Navigation {
   /**
    *
@@ -29,10 +30,6 @@ export class Navigation {
         `;
   }
 
-  /**
-   *
-   * @return {*}
-   */
   render() {
     return this.nav.map((el) => this.createNavItem(el)).join("");
   }

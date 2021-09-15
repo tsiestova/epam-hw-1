@@ -80,6 +80,12 @@
     grid-row: 1;
   }
 
+  &.header-inner {
+    background: white;
+    position: sticky;
+    top: 0;
+  }
+
   &.sticky {
     background: linear-gradient(to right, #f6f3eb, #c6d9dd);
     color: $color1;

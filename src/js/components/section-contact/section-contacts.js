@@ -1,10 +1,10 @@
 export class Contacts {
-    constructor(contacts) {
-        this.contacts = contacts;
-    }
+  constructor(contacts) {
+    this.contacts = contacts;
+  }
 
-    render() {
-        return `<section id="contact" class="section__contact text-center">
+  render() {
+    return `<section id="contact" class="section__contact text-center">
             <h2 class="section__contact-heading text-h2 bottom-line">
                ${this.contacts.title}
             </h2>
@@ -106,6 +106,6 @@ export class Contacts {
                     </div>
                 </div>
             </div>
-        </section>`
-    }
+        </section>`;
+  }
 }

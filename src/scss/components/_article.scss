@@ -116,9 +116,8 @@ article {
 }
 
 .link {
-  border-bottom: 1px solid $color1;
   font-weight: bold;
-  padding-bottom: 5px;
+  text-decoration: underline;
 }
 
 .data-box_inner {
@@ -359,18 +358,6 @@ aside {
 
 .section__blog-item_inner {
   overflow: inherit;
-
-  &:last-child {
-    &:after {
-      content: "";
-      width: 2px;
-      height: 80%;
-      background: $color16;
-      position: absolute;
-      left: 43px;
-      top: 95px;
-    }
-  }
 }
 
 .section__post-article-link {
@@ -379,7 +366,7 @@ aside {
   }
 }
 
-.section__blog-item_inner {
+.section__post_review_item {
   &:first-of-type {
     position: relative;
 
