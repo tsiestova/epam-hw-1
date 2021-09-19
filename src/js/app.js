@@ -9,7 +9,7 @@ import { Testimonials } from "./components/section-testimonials/section-testimon
 import { Contacts } from "./components/section-contact/section-contacts";
 import { Blog } from "./components/page-blog/page-blog";
 import { Article } from "./components/page-post/page-post";
-import { data } from "./data";
+import data from "./data.json";
 
 document.addEventListener("DOMContentLoaded", function (event) {
   const applicationContainer = document.getElementById("app");

@@ -1,28 +1,31 @@
+/* eslint no-use-before-define: 0 */
 /**
  *
  * @param {string} title
  * @return {string} VALID OR INVALID
  */
-function validateTitle(title) {
-  const specialSymbols = [' ', '!', ':', '-', '?', '.', ','];
 
-  // type of title 'string'
+function isString(value) {
   if (typeof title !== 'string') {
     return 'Incorrect input data';
   }
+}
 
-  // check the length of title
+function isCorrectLength(value) {
   if (title.length < 2 || title.length > 20) {
     return 'INVALID';
   }
+}
 
-  // check if first letter is uppercase
+function isUppercaseFirstLetter(value) {
   if (!(title.charAt(0).charCodeAt() >= 'A'.charCodeAt() &&
-        title.charAt(0).charCodeAt() <= 'Z'.charCodeAt())) {
+      title.charAt(0).charCodeAt() <= 'Z'.charCodeAt())) {
     return 'INVALID';
   }
+}
 
-  // title contains only letters and special symbols
+function validateTitle(title) {
+  const specialSymbols = [' ', '!', ':', '-', '?', '.', ','];
   if (!(title.split('').map((item) =>
     (item.toLowerCase().charCodeAt() >= 'a'.charCodeAt() &&
         item.toLowerCase().charCodeAt() <= 'z'.charCodeAt()) ||
@@ -35,9 +38,18 @@ function validateTitle(title) {
 
 console.log(validateTitle('Title!'));
 console.log(validateTitle('s'));
+console.log(validateTitle('sf'));
+console.log(validateTitle('S'));
+console.log(validateTitle('Sf'));
 console.log(validateTitle('12title'));
 console.log(validateTitle('Title?'));
+console.log(validateTitle('?Title?'));
+console.log(validateTitle('Title '));
+console.log(validateTitle(' Title?'));
+console.log(validateTitle(' Tайtle?'));
+console.log('Some long tittle more than 20 symbols');
 console.log(validateTitle(false));
+console.log(validateTitle(['1', '2']));
 
 //* ***********************************************************
 /**
