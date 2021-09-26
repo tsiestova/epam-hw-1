@@ -1,4 +1,4 @@
-// eslint-disable-next-line prefer-rest-params
+
 function isString(value) {
   return typeof(value) === 'string';
 }
