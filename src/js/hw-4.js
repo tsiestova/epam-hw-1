@@ -17,6 +17,7 @@ const cache = (func) => {
 const complexFunction = function(arg1, arg2) {
   return arg1 + arg2;
 };
+
 const cachedFunction = cache(complexFunction);
 console.log(cachedFunction('foo', 'bar'));
 console.log(cachedFunction('foo', 'bar'));
@@ -31,6 +32,7 @@ console.log(cachedFunction('foo', 'baz'));
 const ladder = {
 
   step: 0,
+  currentStep: 0,
 
   up: function() {
     this.step += 1;
@@ -43,16 +45,28 @@ const ladder = {
   },
 
   showStep: function() {
-    console.log(this.step);
-    return this;
+    this.currentStep = this.step;
+    this.step = 0;
+    return this.currentStep;
   },
 };
 
-ladder.up().up().down().up().showStep();
+console.log(ladder.up().up().down().up().showStep());
+console.log(ladder.showStep());
+console.log(ladder.up().showStep());
+console.log(ladder.showStep());
 
 // // ***************************   //task 2
-//
+
 // // ***************************   task 3
+
+const sum = (a, b) => {
+  return a + b;
+};
+
+const mul = (a, b) => {
+  return a * b;
+};
 
 const applyAllES5 = function(func) {
   // eslint-disable-next-line prefer-rest-params
@@ -66,27 +80,15 @@ const applyAllES5 = function(func) {
   return result;
 };
 
-const applyAll = (func, ...params) => {
-  let result = func(params[0], params[1]);
-
-  for (let i = 2; i < params.length; i++) {
-    result = func(result, params[i]);
-  }
-  return result;
+const applyAllES6 = (func, ...params) => {
+  return params.reduce((acc, num) =>
+    func(acc, num));
 };
 
-const sum = (a, b) => {
-  return a + b;
-};
+console.log(applyAllES5(sum, 1, 2, 3));
+console.log(applyAllES5(mul, 2, 3, 4));
 
-const mul = (a, b) => {
-  return a * b;
-};
-
-console.log(applyAll(sum, 1, 2, 3)); // -> sum(1, 2, 3) = 6
-console.log(applyAll(mul, 2, 3, 4)); // -> mul(2, 3, 4) = 24
-
-console.log(applyAllES5(sum, 1, 2, 3)); // -> sum(1, 2, 3) = 6
-console.log(applyAllES5(mul, 2, 3, 4)); // -> mul(2, 3, 4) = 24
+console.log(applyAllES6(sum, 1, 2, 3));
+console.log(applyAllES6(mul, 2, 3, 4));
 
 // // ***************************   //task 3

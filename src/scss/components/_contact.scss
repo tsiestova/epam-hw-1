@@ -250,8 +250,3 @@
   }
 }
 
-.section__testimonials-photo-item {
-  @include breakpoint(tablet) {
-    display: flex;
-  }
-}

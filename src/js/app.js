@@ -10,6 +10,7 @@ import { Contacts } from "./components/section-contact/section-contacts";
 import { Blog } from "./components/page-blog/page-blog";
 import { Article } from "./components/page-post/page-post";
 import data from "./data.json";
+import {initialSlider, Slider} from "./slider";
 
 document.addEventListener("DOMContentLoaded", function (event) {
   const applicationContainer = document.getElementById("app");
@@ -56,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     `;
   }
 
+
   function renderPage(href) {
     switch (href) {
       case "#blog":
@@ -67,6 +69,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
       default:
         applicationContainer.innerHTML = renderHome();
+
+        /*const slideshows = document.querySelectorAll('.section__testimonials-photo-item');
+        initialSlider(slideshows);*/
+
+        new Slider();
     }
   }
 
