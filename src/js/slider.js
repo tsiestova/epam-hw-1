@@ -50,16 +50,34 @@ export class Slider {
     this.render();
 
     this.rightButton.addEventListener('click', () => this.moveRight());
+    this.leftButton.addEventListener('click', () => this.moveLeft());
 
-    this.leftButton.addEventListener('click', () => {
-      if(this.step > 0) {
-        this.step--;
-      } else {
-        this.step = this.count - 1;
-      }
+    this.list.addEventListener('mouseleave', () => this.startAnimation());
+    this.list.addEventListener('mouseenter', () => clearTimeout(this.sliderMove));
+  }
 
-      this.render();
-    });
+  moveLeft() {
+    if(this.step > 0) {
+      this.step--;
+    }
+    if(this.step <= 0) {
+      this.list.addEventListener('transitionend', this.animateLeft);
+    }
+
+    this.render();
+  }
+
+  moveRight() {
+    if (this.step < this.count - 1) {
+      this.step++;
+    }
+
+    if (this.step === this.count - 1) {
+      this.list.addEventListener('transitionend', this.animateRight);
+    }
+
+
+    this.render();
   }
 
   animateRight = () => {
@@ -74,21 +92,22 @@ export class Slider {
     this.list.removeEventListener('transitionend', this.animateRight);
   }
 
-  moveRight() {
-    if (this.step < this.count - 1) {
-      this.step++;
-    }
-
-    if (this.step === this.count - 1) {
-      this.list.addEventListener('transitionend', this.animateRight);
-    }
-
+  animateLeft = () => {
+    this.step = 5;
+    this.list.style.transition = 'none';
     this.render();
+
+    setTimeout(() => {
+      this.list.style.transition = '';
+    });
+
+    this.list.removeEventListener('transitionend', this.animateLeft);
   }
 
-  startMoving() {
-    setTimeout(() => {
+  startAnimation () {
+      this.sliderMove = setTimeout( () => {
       this.moveRight();
-    }, 1000)
+      this.startAnimation();
+    }, 1500)
   }
 }
