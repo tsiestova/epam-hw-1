@@ -52,6 +52,8 @@ export class Slider {
     this.rightButton.addEventListener('click', () => this.moveRight());
     this.leftButton.addEventListener('click', () => this.moveLeft());
 
+    this.startAnimation ();
+
     this.list.addEventListener('mouseleave', () => this.startAnimation());
     this.list.addEventListener('mouseenter', () => clearTimeout(this.sliderMove));
   }
