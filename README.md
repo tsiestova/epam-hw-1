@@ -16,7 +16,7 @@ npm run start
 #### The final version placed in the dist/
 - This project includes the following parts:
 
-1. Homework 1 - Implementing 3 mockups according to design (using BEM and SASS)
+1. Homework 1 - Implementing 3 mockups according to design (using BEM and SASS) - (src/js/hw_1.js)
    [github](https://github.com/tsiestova/epam-hw-1/tree/HW_01)
   - [Main page](http://localhost:8080/index.html)
   - [Blog page](http://localhost:8080/blog.html) 
@@ -29,7 +29,7 @@ npm run start
 3. Homework 3 - Functions: tickets, sumOfNumbersInString (src/js/hw_3.js)
    [github](https://github.com/tsiestova/epam-hw-1/tree/HW_03)
 
-4. Homework 4 - Functions: cash, ladder, ES5/ES6 (src/js/hw_4.js)
+4. Homework 4 - Functions: cash, ladder, ES5/ES6 (src/js/hw_4.js) 
    [github](https://github.com/tsiestova/epam-hw-1/tree/HW_04)
 
 5. Homework 5 - building web-pages using JS (src/js/app.js, src/js/components, src/js/data.json)
