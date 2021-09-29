@@ -70,9 +70,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
       default:
         applicationContainer.innerHTML = renderHome();
 
-        /*const slideshows = document.querySelectorAll('.section__testimonials-photo-item');
-        initialSlider(slideshows);*/
-
         new Slider();
     }
   }
