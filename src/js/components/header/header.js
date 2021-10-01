@@ -1,18 +1,17 @@
 export class Header {
-  constructor(navigation, page) {
+  constructor(navigation) {
     this.navigation = navigation;
-    this.page = page;
   }
 
-  render(page) {
+  render(href) {
     let result = "";
-    if (page === "Blog" || page === "Post") {
+    if (href === "#blog" || href === "#post") {
       result = `<header class="header header-inner">
         <div class="layout">
             <div class="header__logo text-h4">BlogWorld</div>
             <nav class="header__nav-menu">
                 <ul>
-                    ${this.navigation.render()}
+                    ${this.navigation.render(href)}
                 </ul> 
             </nav> 
         </div> 
@@ -23,7 +22,7 @@ export class Header {
             <div class="header__logo text-h4">BlogWorld</div>
             <nav class="header__nav-menu">
                 <ul>
-                    ${this.navigation.render()}
+                    ${this.navigation.render(href)}
                 </ul>
             </nav>
         </div>

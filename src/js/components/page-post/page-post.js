@@ -116,7 +116,7 @@ export class Article {
                   controls
                   src="${this.article.pic}"
                 ></audio>
-              </figure>
+              </figure> 
               
                <div class="article">
                ${this.article.text}
@@ -229,7 +229,7 @@ export class Article {
                     class="input-accordion"
                   />
                   <label for="restaurant" class="label-accordion text-h4"
-                    >Travel news (3))</label
+                    >Travel news (3)</label
                   >
                   <ul class="hidden-list">
                     <li class="hidden-list_item text-h5"><a href="#">Hiking</a></li>
@@ -255,7 +255,7 @@ export class Article {
                 <li class="section__post-categories-item">
                   <input id="product" type="checkbox" class="input-accordion" />
                   <label for="product" class="label-accordion text-h4"
-                    >Product (4))</label
+                    >Product (4)</label
                   >
                   <ul class="hidden-list">
                     <li class="hidden-list_item text-h5"></li>

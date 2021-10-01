@@ -10,11 +10,10 @@ import { Contacts } from "./components/section-contact/section-contacts";
 import { Blog } from "./components/page-blog/page-blog";
 import { Article } from "./components/page-post/page-post";
 import data from "./data.json";
-import {initialSlider, Slider} from "./slider";
 
 document.addEventListener("DOMContentLoaded", function (event) {
   const applicationContainer = document.getElementById("app");
-  const navigation = new Navigation(data.nav, data.nav[0]);
+  const navigation = new Navigation(data.nav);
   const header = new Header(navigation);
   const footer = new Footer(navigation);
   const sectionTopContent = new SectionTopContent(data.blockContent);
@@ -28,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   function renderHome() {
     return `
-      ${header.render("Home")}
+      ${header.render("#home")}
         <div class="sections-wrap">
             ${sectionTopContent.render()} 
             ${about.render()}
@@ -43,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   function renderBlog() {
     return `
-      ${header.render("Blog")}
+      ${header.render("#blog")}
       ${blog.render()} 
       ${footer.render()} 
     `;
@@ -51,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   function renderPost() {
     return `
-      ${header.render("Post")} 
+      ${header.render("#post")} 
       ${article.render()}
       ${footer.render()} 
     `;
@@ -69,13 +68,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
       default:
         applicationContainer.innerHTML = renderHome();
-
-        /*const slideshows = document.querySelectorAll('.section__testimonials-photo-item');
-        initialSlider(slideshows);*/
-
-        new Slider();
     }
   }
+
 
   renderPage(location.hash);
 

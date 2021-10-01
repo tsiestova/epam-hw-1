@@ -93,6 +93,7 @@
     color: $color6;
     font-size: 13px;
 
+
     &:after {
       content: "";
       height: 3px;
@@ -101,6 +102,7 @@
       position: absolute;
       top: 10px;
       left: -14px;
+      border-radius: 50%;
     }
   }
 }

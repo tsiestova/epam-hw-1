@@ -24,6 +24,19 @@ export class Blog {
     return str;
   }
 
+    createRatingList(count) {
+        console.log(count);
+        let star = 5;
+        const arr = [];
+
+      for(let i = 0; i < star; i++) {
+        arr.push(`<li class="rating-item ${i < count ? "full" : ''}"></li>`);
+      }
+
+      return arr.join('');
+  }
+
+
   createItem(obj) {
     return ` <li class="section__blog-item">
                         ${
@@ -69,14 +82,9 @@ export class Blog {
                                           obj.data.comments
                                         }</span>
                                         <ul class="rating-list">
-                                           <li class="rating-item full"></li>
-                        <li class="rating-item full"></li>
-                        <li class="rating-item full"></li>
-                        <li class="rating-item"></li>
-                        <li class="rating-item"></li>
-                                       
-                                        </ul>
-                                    </div>
+                                            ${this.createRatingList(obj.stars.full)}
+                                        </ul> 
+                                    </div> 
                                 </div>
                             </div> 
 
