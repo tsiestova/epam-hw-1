@@ -137,7 +137,7 @@ export class Blog {
                     ${this.createList()}
                 </ul> 
             </div>
-            <a href="${this.blog.button.src}" class="${
+            <a href="${this.blog.button.href}" class="${
       this.blog.button.type
     }">${this.blog.button.title}</a>
         </section>`;
