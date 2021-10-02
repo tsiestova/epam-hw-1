@@ -10,6 +10,7 @@ import { Contacts } from "./components/section-contact/section-contacts";
 import { Blog } from "./components/page-blog/page-blog";
 import { Article } from "./components/page-post/page-post";
 import data from "./data.json";
+import { APIKEY } from "./config";
 
 document.addEventListener("DOMContentLoaded", function (event) {
   const applicationContainer = document.getElementById("app");
@@ -24,6 +25,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const contacts = new Contacts(data.contacts);
   const blog = new Blog(data.blog);
   const article = new Article(data.article);
+
+  let baseURL = "https://api.themoviedb.org/3";
 
   function renderHome() {
     return `
@@ -40,10 +43,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
     `;
   }
 
-  function renderBlog() {
+  function renderBlog(data) {
     return `
       ${header.render("#blog")}
-      ${blog.render()} 
+      ${blog.render(data)} 
       ${footer.render()} 
     `;
   }
@@ -56,11 +59,49 @@ document.addEventListener("DOMContentLoaded", function (event) {
     `;
   }
 
+  const getBlogData = function () {
+
+    return fetch(`${baseURL}/movie/popular?api_key=${APIKEY}&page=1`)
+        .then((result) => result.json())
+        .then((data) => {
+          return data.results.map((el) => {
+            console.log(el);
+            return {
+              stars: {
+                n: 5,
+                full: 1.5,
+              },
+              type: "video",
+              // pic: "assets/pic/blog-img1.png",
+              pic: `https://image.tmdb.org/t/p/original/${el.backdrop_path}`,
+              // pic: `${baseURL}/movie/popular?api_key=${APIKEY}${el.backdrop_path}`,
+              src: `https://image.tmdb.org/t/p/original/${el.poster_path}`,
+              author: "Neil Richards",
+              title: el.original_title,
+              text: el.overview,
+              button: {
+                title: "Read more",
+                href: "#",
+                type: "btn",
+              },
+              data: {
+                time: "2019-10-20",
+                minuts: "10",
+                comments: "11",
+              },
+            };
+          });
+        });
+
+  };
 
   function renderPage(href) {
     switch (href) {
       case "#blog":
-        applicationContainer.innerHTML = renderBlog();
+        getBlogData().then((data) => {
+          applicationContainer.innerHTML = renderBlog(data);
+        })
+
         break;
       case "#post":
         applicationContainer.innerHTML = renderPost();
@@ -70,7 +111,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         applicationContainer.innerHTML = renderHome();
     }
   }
-
 
   renderPage(location.hash);
 

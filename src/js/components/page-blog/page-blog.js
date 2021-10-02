@@ -3,7 +3,6 @@ export class Blog {
     this.blog = blog;
   }
 
-
   renderButton(type) {
     let str = "";
     switch (type) {
@@ -25,17 +24,19 @@ export class Blog {
   }
 
     createRatingList(count) {
-        console.log(count);
+        // console.log(count);
         let star = 5;
         const arr = [];
 
       for(let i = 0; i < star; i++) {
-        arr.push(`<li class="rating-item ${i < count ? "full" : ''}"></li>`);
+          if(i < count) {
+
+          }
+        arr.push(`<li class="rating-item"></li>`);
       }
 
       return arr.join('');
   }
-
 
   createItem(obj) {
     return ` <li class="section__blog-item">
@@ -112,11 +113,11 @@ export class Blog {
                     </li>`;
   }
 
-  createList() {
-    return this.blog.card.map((el) => this.createItem(el)).join("");
+  createList(data) {
+    return data.map((el) => this.createItem(el)).join("");
   }
 
-  render() {
+  render(data) {
     return `<section class="section__blog text-center">
             <div class="layout">
                 <h2 class="section__blog-heading text-h2 bottom-line">${
@@ -134,7 +135,7 @@ export class Blog {
                 </div> 
 
                 <ul class="section__blog-list">
-                    ${this.createList()}
+                    ${this.createList(data)}
                 </ul> 
             </div>
             <a href="${this.blog.button.src}" class="${

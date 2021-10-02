@@ -45,6 +45,7 @@
 }
 
 .section__blog-item_video {
+  height: auto;
 
   @include breakpoint(tablet) {
     width: 48.3%;
@@ -159,6 +160,12 @@ audio {
   &.full {
     &:before {
       color: $color8;
+    }
+  }
+
+  &.half {
+    &:before {
+      background: linear-gradient(90deg, #FFC0CB 50%, transparent 50%);
     }
   }
 }
