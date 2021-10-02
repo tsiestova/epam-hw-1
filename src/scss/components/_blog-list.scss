@@ -73,6 +73,8 @@ audio {
   width: 52px;
   position: relative;
   flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
 
   img {
     width: 100%;
