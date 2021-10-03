@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   function renderHome() {
     return `
-      ${header.render("Home")}
+       ${header.render("#home")}
         <div class="sections-wrap">
             ${sectionTopContent.render()} 
             ${about.render()}
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   function renderBlog() {
     return `
-      ${header.render("Blog")}
+      ${header.render("#blog")}
       ${blog.render()} 
       ${footer.render()} 
     `;
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   function renderPost() {
     return `
-      ${header.render("Post")} 
+       ${header.render("#post")} 
       ${article.render()}
       ${footer.render()} 
     `;

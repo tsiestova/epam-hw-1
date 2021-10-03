@@ -21,6 +21,7 @@
   .btn {
     &:hover {
       cursor: url('../assets/pic/hand-cursor-dark.svg'), auto;
+
     }
   }
 }
@@ -72,6 +73,8 @@ audio {
   width: 52px;
   position: relative;
   flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
 
   img {
     width: 100%;
