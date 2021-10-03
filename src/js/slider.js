@@ -2,6 +2,8 @@
 export class Slider {
   constructor() {
     this.init();
+    this.time = 2000;
+    this.delaySlider = 500;
   }
 
   render() {
@@ -14,6 +16,7 @@ export class Slider {
     this.list = document.getElementById('slider-list');
     this.leftButton = document.getElementById('flip-left');
     this.rightButton = document.getElementById('flip-right');
+    this.sliderBox = document.getElementById('testimonials-photo-list_wrap');
 
     const elFirst = this.list.children[0];
     const elLast = this.list.children[this.list.children.length -1];
@@ -31,10 +34,14 @@ export class Slider {
     this.rightButton.addEventListener('click', () => this.moveRight());
     this.leftButton.addEventListener('click', () => this.moveLeft());
 
-    this.startAnimation ();
+    setTimeout(() => {
+      this.startAnimation ();
+    }, this.delaySlider)
 
-    this.list.addEventListener('mouseleave', () => this.startAnimation());
-    this.list.addEventListener('mouseenter', () => clearTimeout(this.sliderMove));
+
+    this.sliderBox.addEventListener('mouseleave', () => this.startAnimation());
+    this.sliderBox.addEventListener('mouseenter', () => clearTimeout(this.testimonialSliderMove));
+
   }
 
   moveLeft() {
@@ -57,7 +64,6 @@ export class Slider {
       this.list.addEventListener('transitionend', this.animateRight);
     }
 
-
     this.render();
   }
 
@@ -74,7 +80,7 @@ export class Slider {
   }
 
   animateLeft = () => {
-    this.step = 5;
+    this.step =  this.list.children.length - 2;
     this.list.style.transition = 'none';
     this.render();
 
@@ -86,9 +92,14 @@ export class Slider {
   }
 
   startAnimation () {
-      this.sliderMove = setTimeout( () => {
+
+      this.testimonialSliderMove = setTimeout( () => {
       this.moveRight();
       this.startAnimation();
-    }, 1500)
+    }, this.time)
+  }
+
+  destroy () {
+    clearTimeout(this.testimonialSliderMove);
   }
 }

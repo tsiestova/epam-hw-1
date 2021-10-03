@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const contacts = new Contacts(data.contacts);
   const blog = new Blog(data.blog);
   const article = new Article(data.article);
+  let testimonialsSlider;
 
   function renderHome() {
     return `
@@ -57,11 +58,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
     `;
   }
 
-
   function renderPage(href) {
+    cleanUp();
     switch (href) {
       case "#blog":
         applicationContainer.innerHTML = renderBlog();
+
         break;
       case "#post":
         applicationContainer.innerHTML = renderPost();
@@ -69,12 +71,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
       default:
         applicationContainer.innerHTML = renderHome();
-
-        new Slider();
+        testimonialsSlider = new Slider();
     }
   }
 
+  function cleanUp() {
+    if(testimonialsSlider) {
+      testimonialsSlider.destroy();
+      testimonialsSlider = null;
+    }
+  }
   renderPage(location.hash);
+
 
   window.addEventListener("hashchange", (event) => {
     renderPage(location.hash);
