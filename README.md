@@ -22,9 +22,9 @@ npm run start
 - [Blog page](http://localhost:8080/blog.html)
 - [Post page](http://localhost:8080/post.html)
 
-2. Homework 2 - Functions: validation, sum, checkNumbers (src/js/hw_2.js)
+2. Homework 2 - Functions: validation, sum, checkNumbers (src/js/hw-2.js)
    [github](https://github.com/tsiestova/epam-hw-1/tree/HW_02)
 
 
-3. Homework 3 - Functions: tickets, sumOfNumbersInString (src/js/hw_3.js)
+3. Homework 3 - Functions: tickets, sumOfNumbersInString (src/js/hw-3.js)
    [github](https://github.com/tsiestova/epam-hw-1/tree/HW_03)

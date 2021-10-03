@@ -6,7 +6,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: ['./src/js/hw_2.js', './src/scss/style.scss'],
+  entry: ['./src/js/hw-2.js', './src/scss/style.scss'],
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './dist',
