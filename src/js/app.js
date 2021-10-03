@@ -11,6 +11,7 @@ import { Blog } from "./components/page-blog/page-blog";
 import { Article } from "./components/page-post/page-post";
 import data from "./data.json";
 import { APIKEY } from "./config";
+import { Slider} from "./slider";
 
 document.addEventListener("DOMContentLoaded", function (event) {
   const applicationContainer = document.getElementById("app");
@@ -25,12 +26,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const contacts = new Contacts(data.contacts);
   const blog = new Blog(data.blog);
   const article = new Article(data.article);
+  let testimonialsSlider;
 
   let baseURL = "https://api.themoviedb.org/3";
 
   function renderHome() {
     return `
-      ${header.render("#home")}
+       ${header.render("#home")}
         <div class="sections-wrap">
             ${sectionTopContent.render()} 
             ${about.render()}
@@ -53,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   function renderPost() {
     return `
-      ${header.render("#post")} 
+       ${header.render("#post")} 
       ${article.render()}
       ${footer.render()} 
     `;
@@ -65,7 +67,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         .then((result) => result.json())
         .then((data) => {
           return data.results.map((el) => {
-            console.log(el);
             return {
               stars: {
                 n: 5,
@@ -96,6 +97,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   };
 
   function renderPage(href) {
+    cleanUp();
     switch (href) {
       case "#blog":
         getBlogData().then((data) => {
@@ -109,10 +111,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
       default:
         applicationContainer.innerHTML = renderHome();
+        testimonialsSlider = new Slider();
     }
   }
 
+  function cleanUp() {
+    if(testimonialsSlider) {
+      testimonialsSlider.destroy();
+      testimonialsSlider = null;
+    }
+  }
   renderPage(location.hash);
+
 
   window.addEventListener("hashchange", (event) => {
     renderPage(location.hash);

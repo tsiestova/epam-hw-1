@@ -40,12 +40,12 @@ export class Testimonials {
                 ${this.testimonials.title}
             </h2>
 
-            <div class="section-wrap">
+            <div class="section-wrap" id="testimonials-photo-list_wrap">
               <button id="flip-left" class="flip left"></button>
               <div class="section__testimonials-photo-list_wrap">
               <ul id="slider-list" class="section__testimonials-photo-list">
                 ${this.createList()}
-              </ul>
+              </ul> 
               </div>
               <button id="flip-right" class="flip right"></button>
             </div>

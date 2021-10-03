@@ -3,6 +3,7 @@ export class Blog {
     this.blog = blog;
   }
 
+
   renderButton(type) {
     let str = "";
     switch (type) {
@@ -24,7 +25,7 @@ export class Blog {
   }
 
     createRatingList(count) {
-        // console.log(count);
+        console.log(count);
         let star = 5;
         const arr = [];
 
@@ -37,6 +38,7 @@ export class Blog {
 
       return arr.join('');
   }
+
 
   createItem(obj) {
     return ` <li class="section__blog-item">
@@ -138,7 +140,7 @@ export class Blog {
                     ${this.createList(data)}
                 </ul> 
             </div>
-            <a href="${this.blog.button.src}" class="${
+            <a href="${this.blog.button.href}" class="${
       this.blog.button.type
     }">${this.blog.button.title}</a>
         </section>`;
