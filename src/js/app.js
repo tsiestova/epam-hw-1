@@ -63,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     switch (href) {
       case "#blog":
         applicationContainer.innerHTML = renderBlog();
-
         break;
       case "#post":
         applicationContainer.innerHTML = renderPost();

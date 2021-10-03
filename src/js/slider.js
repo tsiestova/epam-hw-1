@@ -3,16 +3,31 @@ export class Slider {
   constructor() {
     this.init();
     this.time = 2000;
-    this.delaySlider = 500;
   }
+
 
   render() {
     this.list.style.transform = `translateX(-${this.step * 100}%)`;
   }
 
   init() {
+
+    this.target = document.getElementById('section-testimonials');
+    this.observer = new IntersectionObserver((entries) => {
+
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.startAnimation();
+        } else {
+          clearTimeout(this.testimonialSliderMove);
+        }
+      });
+    });
+
+    this.observer.observe(this.target);
+
     this.step = 1;
-    
+
     this.list = document.getElementById('slider-list');
     this.leftButton = document.getElementById('flip-left');
     this.rightButton = document.getElementById('flip-right');
@@ -33,11 +48,6 @@ export class Slider {
 
     this.rightButton.addEventListener('click', () => this.moveRight());
     this.leftButton.addEventListener('click', () => this.moveLeft());
-
-    setTimeout(() => {
-      this.startAnimation ();
-    }, this.delaySlider)
-
 
     this.sliderBox.addEventListener('mouseleave', () => this.startAnimation());
     this.sliderBox.addEventListener('mouseenter', () => clearTimeout(this.testimonialSliderMove));
@@ -101,5 +111,6 @@ export class Slider {
 
   destroy () {
     clearTimeout(this.testimonialSliderMove);
+    this.observer.disconnect();
   }
 }
