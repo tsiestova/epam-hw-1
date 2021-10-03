@@ -1,4 +1,3 @@
-
 function isString(value) {
   return typeof(value) === 'string';
 }
@@ -149,5 +148,3 @@ console.log(checkNumber(7));
 console.log(checkNumber(46));
 console.log(checkNumber(-7));
 console.log(checkNumber(-10));
-
-

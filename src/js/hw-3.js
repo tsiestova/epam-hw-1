@@ -154,8 +154,8 @@ const getQuanityPostsByAuthor = (arr, name) => {
 
   arr.forEach((el) => el.author === name ? countOfPost++ : 0);
   arr.forEach((el) => el.comments ?
-        el.comments.forEach((el) => el.author === name ? countOfComment++ : 0) :
-        0);
+      el.comments.forEach((el) => el.author === name ? countOfComment++ : 0) :
+      0);
 
   return `Post:${countOfPost}, comments:${countOfComment}`;
 };
