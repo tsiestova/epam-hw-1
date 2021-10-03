@@ -8,9 +8,8 @@ export class Navigation {
    * @param {Array<{title: string, href: string}>} nav
    * @param {{title: string, href: string}} active
    */
-  constructor(nav, active) {
+  constructor(nav) {
     this.nav = nav;
-    this.active = active;
   }
 
   /**
@@ -18,11 +17,12 @@ export class Navigation {
    * @param {{href:string, title: string}} item
    * @return {string}
    */
-  createNavItem(item) {
+
+  createNavItem(item, href) {
     return `
             <li class="header__nav-item">
                 <a class="text-h5 ${
-                  item.href === this.active.href ? "active" : ""
+                  item.href === href ? "active" : ""
                 }" href="${item.href}" data-value="${item.title}">"${
       item.title
     }"</a>
@@ -30,7 +30,7 @@ export class Navigation {
         `;
   }
 
-  render() {
-    return this.nav.map((el) => this.createNavItem(el)).join("");
+  render(href) {
+    return this.nav.map((el) => this.createNavItem(el, href)).join("");
   }
 }

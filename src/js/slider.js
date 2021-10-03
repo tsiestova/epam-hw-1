@@ -1,24 +1,3 @@
-/* export function initialSlider(list) {
-    console.log(list);
-
-    let index = 0;
-    let time = 1000;
-
-    list[index].classList.add('active');
-
-    setInterval( () => {
-        list[index].classList.remove('active');
-
-        index++;
-
-        if (index === list.length) {
-            index = 0;
-        }
-
-        list[index].classList.add('active');
-
-    }, time);
-}*/
 
 export class Slider {
   constructor() {

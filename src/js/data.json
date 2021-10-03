@@ -163,7 +163,7 @@
       {
         "stars": {
           "n": 5,
-          "full": 3
+          "full": 5
         },
         "type": "video",
         "pic": "assets/pic/blog-img1.png",
@@ -299,3 +299,4 @@
     }
   }
 }
+

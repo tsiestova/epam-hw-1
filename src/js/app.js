@@ -10,11 +10,11 @@ import { Contacts } from "./components/section-contact/section-contacts";
 import { Blog } from "./components/page-blog/page-blog";
 import { Article } from "./components/page-post/page-post";
 import data from "./data.json";
-import {initialSlider, Slider} from "./slider";
+import { Slider} from "./slider";
 
 document.addEventListener("DOMContentLoaded", function (event) {
   const applicationContainer = document.getElementById("app");
-  const navigation = new Navigation(data.nav, data.nav[0]);
+  const navigation = new Navigation(data.nav);
   const header = new Header(navigation);
   const footer = new Footer(navigation);
   const sectionTopContent = new SectionTopContent(data.blockContent);

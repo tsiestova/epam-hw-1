@@ -116,7 +116,7 @@ export class Article {
                   controls
                   src="${this.article.pic}"
                 ></audio>
-              </figure>
+              </figure> 
               
                <div class="article">
                ${this.article.text}
