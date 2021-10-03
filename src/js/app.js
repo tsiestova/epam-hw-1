@@ -71,7 +71,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 
-
   renderPage(location.hash);
 
   window.addEventListener("hashchange", (event) => {
