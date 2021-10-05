@@ -45,3 +45,6 @@ npm run start
 7. Homework 7 - API calls one the Blog page
    [github](https://github.com/tsiestova/epam-hw-1/tree/HW_07)
 - [Blog page](http://localhost:8080/main.html#blog)
+
+8. Homework 8 - 
+   [github](https://github.com/tsiestova/epam-hw-1/tree/HW_09)
