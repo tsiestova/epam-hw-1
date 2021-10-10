@@ -11,9 +11,6 @@ console.log(`${finish} milliseconds (using recursion)`);
 
 console.log(calculateFibByRecursion(7));
 
-// 0, 1, 1, 2, 3, 5, 8, 13
-
-
 function calculateFibByCycle(sequenceLength) {
   const arr = [];
   let result = 0;
@@ -52,4 +49,44 @@ console.log(calculateFibByCycle(7));
 // console.log(calculateFibByCycle(8));
 
 
+//* ******************** //task 1
+
+//* ******************** task 2
+
+function parseJson(json) {
+  try {
+    JSON.parse(json);
+    return JSON.parse(json);
+  } catch (e) {
+    return null;
+  }
+}
+
+console.log(parseJson('{"name": "JavaScript", "company": "xChange"}'));
+console.log(parseJson('{name: JavaScript, company: xChange}'));
+
 //* ******************** //task 2
+
+//* ******************** task 3
+
+console.log('task 3');
+window.addEventListener('error', function(ev) {
+  console.log(ev.type);
+  console.warn(ev);
+});
+
+function parseJson2(str) {
+  const obj = JSON.parse(str);
+
+  if (obj.hasOwnProperty('name') && obj.hasOwnProperty('company')) {
+    return obj;
+  }
+
+  throw new Error('Is not valid');
+}
+
+parseJson2('{"name": "JavaScript", "company": "xChange"}');
+parseJson2('{name: JavaScript, company: xChange}');
+parseJson2('{name: JavaScript, company: xChange}');
+
+
