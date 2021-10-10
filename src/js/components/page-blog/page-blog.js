@@ -25,7 +25,6 @@ export class Blog {
   }
 
     createRatingList(count) {
-        console.log(count);
         let star = 5;
         const arr = [];
 
