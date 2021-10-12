@@ -48,6 +48,12 @@ console.log(calculateFibByCycle(7));
 // console.log(calculateFibByCycle(4));
 // console.log(calculateFibByCycle(8));
 
+/**
+ * Loop is faster because recursion involves pushing a stack frame,
+ * jumping, returning, and popping back from the stack.
+ * Calling function requires more resources then executing the code
+ * within a loop
+ */
 
 //* ******************** //task 1
 
