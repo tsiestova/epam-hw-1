@@ -11,7 +11,8 @@ import { Blog } from "./components/page-blog/page-blog";
 import { Article } from "./components/page-post/page-post";
 import data from "./data.json";
 import { APIKEY } from "./config";
-import { Slider} from "./slider";
+// import { Slider} from "./slider";
+import {sliderPortfolio, sliderTestimonials} from "./sliderES5";
 
 document.addEventListener("DOMContentLoaded", function (event) {
   const applicationContainer = document.getElementById("app");
@@ -111,7 +112,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
       default:
         applicationContainer.innerHTML = renderHome();
-        testimonialsSlider = new Slider();
+        // testimonialsSlider = new Slider();
+        sliderTestimonials.init();
+        sliderPortfolio.init();
     }
   }
 

@@ -23,7 +23,6 @@ export class Slider {
         }
       });
     });
-
     this.observer.observe(this.target);
 
     this.step = 1;

@@ -47,8 +47,8 @@ export class Portfolio {
                 </div>
 
                 <div class="flip-wrap text-center">
-                    <button class="flip left"></button>
-                    <button class="flip right"></button>
+                    <button id="portfolio__flip-left" class="flip left"></button>
+                    <button id="portfolio__flip-right" class="flip right"></button>
                 </div>
                 <a href="${this.portfolio.button.href}" class="${
       this.portfolio.button.type

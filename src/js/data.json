@@ -105,6 +105,24 @@
         "src": "assets/pic/bg-img3.png",
         "title": " Art Ocean",
         "text": "Photography, art, nature"
+      },
+      {
+        "href": "#",
+        "src": "assets/pic/bg-img3.png",
+        "title": "4",
+        "text": "Photography, art, nature"
+      },
+      {
+        "href": "#",
+        "src": "assets/pic/bg-img3.png",
+        "title": "5",
+        "text": "Photography, art, nature"
+      },
+      {
+        "href": "#",
+        "src": "assets/pic/bg-img3.png",
+        "title": "6",
+        "text": "Photography, art, nature"
       }
     ],
     "button": {
