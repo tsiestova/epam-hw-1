@@ -5,7 +5,6 @@ export class Slider {
     this.time = 2000;
   }
 
-
   render() {
     this.list.style.transform = `translateX(-${this.step * 100}%)`;
   }
@@ -50,7 +49,6 @@ export class Slider {
 
     this.sliderBox.addEventListener('mouseleave', () => this.startAnimation());
     this.sliderBox.addEventListener('mouseenter', () => clearTimeout(this.testimonialSliderMove));
-
   }
 
   moveLeft() {
@@ -89,7 +87,7 @@ export class Slider {
   }
 
   animateLeft = () => {
-    this.step =  this.list.children.length - 2;
+    this.step = this.list.children.length - 2;
     this.list.style.transition = 'none';
     this.render();
 

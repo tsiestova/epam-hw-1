@@ -90,20 +90,20 @@
     "galleryList": [
       {
         "href": "#",
-        "src": "assets/pic/bg-img1.png",
-        "title": " Art Ocean",
-        "text": "Photography, art, nature"
-      },
-      {
-        "href": "#",
-        "src": "assets/pic/bg-img2.png",
-        "title": " Art Ocean",
+        "src": "assets/pic/bg-img3.png",
+        "title": "FIRST",
         "text": "Photography, art, nature"
       },
       {
         "href": "#",
         "src": "assets/pic/bg-img3.png",
-        "title": " Art Ocean",
+        "title": "2",
+        "text": "Photography, art, nature"
+      },
+      {
+        "href": "#",
+        "src": "assets/pic/bg-img3.png",
+        "title": "3",
         "text": "Photography, art, nature"
       },
       {

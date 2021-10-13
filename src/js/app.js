@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const blog = new Blog(data.blog);
   const article = new Article(data.article);
   let testimonialsSlider;
+  let portfolioSlider;
 
   let baseURL = "https://api.themoviedb.org/3";
 
@@ -114,7 +115,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
         applicationContainer.innerHTML = renderHome();
         // testimonialsSlider = new Slider();
         sliderTestimonials.init();
+        sliderTestimonials.startAnimation();
         sliderPortfolio.init();
+        sliderPortfolio.startAnimation();
     }
   }
 
@@ -123,9 +126,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
       testimonialsSlider.destroy();
       testimonialsSlider = null;
     }
-  }
-  renderPage(location.hash);
 
+    if(portfolioSlider) {
+      portfolioSlider.destroy();
+      portfolioSlider = null;
+    }
+  }
+
+  renderPage(location.hash);
 
   window.addEventListener("hashchange", (event) => {
     renderPage(location.hash);
