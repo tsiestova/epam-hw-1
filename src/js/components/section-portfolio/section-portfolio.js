@@ -41,14 +41,14 @@ export class Portfolio {
                 </div>
 
                 <div class="slider-wrap">
-                    <ul class="gallery__slider">
+                    <ul id="portfolio-list" class="gallery__slider">
                        ${this.createGalleryList()}
                     </ul>
                 </div>
-
+ 
                 <div class="flip-wrap text-center">
-                    <button class="flip left"></button>
-                    <button class="flip right"></button>
+                    <button id="portfolio__flip-left" class="flip left"></button>
+                    <button id="portfolio__flip-right" class="flip right"></button>
                 </div>
                 <a href="${this.portfolio.button.href}" class="${
       this.portfolio.button.type

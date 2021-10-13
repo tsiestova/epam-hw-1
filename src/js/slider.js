@@ -5,7 +5,6 @@ export class Slider {
     this.time = 2000;
   }
 
-
   render() {
     this.list.style.transform = `translateX(-${this.step * 100}%)`;
   }
@@ -42,6 +41,7 @@ export class Slider {
     this.list.appendChild(cloneFirst);
     this.list.insertBefore(cloneLast, elFirst);
 
+
     this.count = this.list.children.length;
 
     this.render();
@@ -51,7 +51,6 @@ export class Slider {
 
     this.sliderBox.addEventListener('mouseleave', () => this.startAnimation());
     this.sliderBox.addEventListener('mouseenter', () => clearTimeout(this.testimonialSliderMove));
-
   }
 
   moveLeft() {
@@ -61,6 +60,8 @@ export class Slider {
     if(this.step <= 0) {
       this.list.addEventListener('transitionend', this.animateLeft);
     }
+
+    console.log(`test` + this.step);
 
     this.render();
   }
@@ -90,7 +91,7 @@ export class Slider {
   }
 
   animateLeft = () => {
-    this.step =  this.list.children.length - 2;
+    this.step = this.list.children.length - 2;
     this.list.style.transition = 'none';
     this.render();
 

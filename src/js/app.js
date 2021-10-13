@@ -12,6 +12,7 @@ import { Article } from "./components/page-post/page-post";
 import data from "./data.json";
 import { APIKEY } from "./config";
 import { Slider} from "./slider";
+import { Sliderportfolio } from "./sliderportfolio";
 
 document.addEventListener("DOMContentLoaded", function (event) {
   const applicationContainer = document.getElementById("app");
@@ -27,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const blog = new Blog(data.blog);
   const article = new Article(data.article);
   let testimonialsSlider;
+  let portfolioSlider;
 
   let baseURL = "https://api.themoviedb.org/3";
 
@@ -112,6 +114,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       default:
         applicationContainer.innerHTML = renderHome();
         testimonialsSlider = new Slider();
+        portfolioSlider = new Sliderportfolio(1500, 3);
     }
   }
 
