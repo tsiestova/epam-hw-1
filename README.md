@@ -50,5 +50,6 @@ npm run start
 9. Homework 9 - 
    [github](https://github.com/tsiestova/epam-hw-1/tree/HW_09) (error.html, js/hw_9.js)
    
-10. Homework 10 - implementation of slider section 'Latest porfolio' (js/sliderES5.js)
-       [github](https://github.com/tsiestova/epam-hw-1/tree/HW_10) 
+10. Homework 10 - implementation of slider on the Blog page, section 'Latest porfolio'
+- [Blog page](http://localhost:8080/main.html#blog) (js/sliderES5.js)
+  [github](https://github.com/tsiestova/epam-hw-1/tree/HW_10) 
