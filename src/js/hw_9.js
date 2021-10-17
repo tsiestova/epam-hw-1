@@ -61,7 +61,6 @@ console.log(calculateFibByCycle(7));
 
 function parseJson(json) {
   try {
-    JSON.parse(json);
     return JSON.parse(json);
   } catch (e) {
     return null;
