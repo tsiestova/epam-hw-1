@@ -3,7 +3,6 @@ export class Blog {
     this.blog = blog;
   }
 
-
   renderButton(type) {
     let str = "";
     switch (type) {
@@ -37,7 +36,6 @@ export class Blog {
 
       return arr.join('');
   }
-
 
   createItem(obj) {
     return ` <li class="section__blog-item">
@@ -76,8 +74,8 @@ export class Blog {
                                         </time
                                         >
                                         <span class="text-h5 dot">${
-                                          obj.data.minuts
-                                        }min read</span>
+                                          obj.runtime
+                                        } min duration</span>
                                         <span class="text-h5 dot comments">${
                                           obj.data.comments
                                         }</span>

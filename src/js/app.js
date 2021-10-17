@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             let stars = (COUNT_OF_STARS * (el.vote_average * 10)) / 100;
 
             return {
+              id: el.id,
               stars: {
                 n: COUNT_OF_STARS,
                 full: Math.floor(stars)
@@ -99,21 +100,30 @@ document.addEventListener("DOMContentLoaded", function (event) {
               },
             };
           });
+        }).then((response) => {
+          return Promise.all(
+              response.map((item) =>
+                  fetch(`${baseURL}/movie/${item.id}?api_key=${APIKEY}&language=en-US`)
+                      .then((data) => data.json())
+                      .then((data) => {
+                        item.runtime = data.runtime;
+                        return item;
+                      })
+              )
+          )
         });
   }
 
   function renderPage(href) {
     cleanUp();
     switch (href) {
-
-
       case "#blog":
         blogPage = 1;
         loadBlogPages(blogPage).then((data) => {
           applicationContainer.innerHTML = renderBlog(data);
+          console.log(data);
 
           const blogLoadButton = document.getElementById('blog-lazy-loading');
-
           blogLoadButton.addEventListener('click', function () {
             blogPage += 1;
             loadBlogPages(blogPage).then((data) => {
