@@ -27,6 +27,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const blog = new Blog(data.blog);
   const article = new Article(data.article);
   let testimonialsSlider;
+  const COUNT_OF_STARS = 5;
+  let blogPage;
 
   let baseURL = "https://api.themoviedb.org/3";
 
@@ -61,16 +63,21 @@ document.addEventListener("DOMContentLoaded", function (event) {
     `;
   }
 
-  const getBlogData = function () {
-
-    return fetch(`${baseURL}/movie/popular?api_key=${APIKEY}&page=1`)
+  const loadBlogPages = function (blogPage) {
+    return fetch(`${baseURL}/movie/popular?api_key=${APIKEY}&page=${blogPage}`)
         .then((result) => result.json())
         .then((data) => {
           return data.results.map((el) => {
+            const month = ['jan', 'feb', 'mar', 'apr', 'may', 'jun',
+              'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+            let data = new Date(el.release_date);
+            let dataStr = `${data.getDate()} ` + `${month[data.getMonth() + 1]}, ` + `${data.getFullYear()}`;
+            let stars = (COUNT_OF_STARS * (el.vote_average * 10)) / 100;
+
             return {
               stars: {
-                n: 5,
-                full: 1.5,
+                n: COUNT_OF_STARS,
+                full: Math.floor(stars)
               },
               type: "video",
               // pic: "assets/pic/blog-img1.png",
@@ -86,23 +93,37 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 type: "btn",
               },
               data: {
-                time: "2019-10-20",
+                time: dataStr,
                 minuts: "10",
-                comments: "11",
+                comments: el.vote_count,
               },
             };
           });
         });
-
-  };
+  }
 
   function renderPage(href) {
     cleanUp();
     switch (href) {
+
+
       case "#blog":
-        getBlogData().then((data) => {
+        blogPage = 1;
+        loadBlogPages(blogPage).then((data) => {
           applicationContainer.innerHTML = renderBlog(data);
-        })
+
+          const blogLoadButton = document.getElementById('blog-lazy-loading');
+
+          blogLoadButton.addEventListener('click', function () {
+            blogPage += 1;
+            loadBlogPages(blogPage).then((data) => {
+              const div = document.createElement('div');
+              div.innerHTML = blog.createList(data);
+              const list = document.querySelector('.section__blog-list');
+              list.appendChild(div);
+            })
+          });
+        });
 
         break;
       case "#post":
@@ -123,8 +144,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
   }
   renderPage(location.hash);
 
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  }
 
   window.addEventListener("hashchange", (event) => {
+    window.scrollTo(0, 0);
     renderPage(location.hash);
   });
 });
