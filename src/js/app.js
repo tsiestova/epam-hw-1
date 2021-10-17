@@ -7,7 +7,7 @@ import { Post } from "./components/section-posts/section-post";
 import { Portfolio } from "./components/section-portfolio/section-portfolio";
 import { Testimonials } from "./components/section-testimonials/section-testimonials";
 import { Contacts } from "./components/section-contact/section-contacts";
-import { Blog } from "./components/page-blog/page-blog";
+// import { Blog } from "./components/page-blog/page-blog";
 import { Article } from "./components/page-post/page-post";
 import data from "./data.json";
 import { APIKEY } from "./config";
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const portfolio = new Portfolio(data.portfolio);
   const testimonials = new Testimonials(data.testimonials);
   const contacts = new Contacts(data.contacts);
-  const blog = new Blog(data.blog);
+  // const blog = new Blog(data.blog);
   const article = new Article(data.article);
   let testimonialsSlider;
   let portfolioSlider;

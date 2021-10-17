@@ -53,8 +53,7 @@ npm run start
 - [Main page](http://localhost:8080/main.html) (js/sliderES5.js)
   [github](https://github.com/tsiestova/epam-hw-1/tree/HW_10) 
 
-11. Homework 11 - 
+11. Homework 11 - creating the class Post and 3 instances (js/postES6.js)
 - [Blog page](http://localhost:8080/main.html#blog)
-- [Post page](http://localhost:8080/main.html#post)
   
   [github](https://github.com/tsiestova/epam-hw-1/tree/HW_11) 
