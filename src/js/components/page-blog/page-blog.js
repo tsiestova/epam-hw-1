@@ -3,7 +3,6 @@ export class Blog {
     this.blog = blog;
   }
 
-
   renderButton(type) {
     let str = "";
     switch (type) {
@@ -24,20 +23,19 @@ export class Blog {
     return str;
   }
 
-    createRatingList(count) {
-        let star = 5;
+    createRatingList(n, full) {
         const arr = [];
 
-      for(let i = 0; i < star; i++) {
-          if(i < count) {
-
+        for(let i = 0; i < n; i++) {
+          if(i <= full) {
+              arr.push(`<li class="rating-item full"></li>`);
+          } else {
+              arr.push(`<li class="rating-item"></li>`);
           }
-        arr.push(`<li class="rating-item"></li>`);
       }
 
       return arr.join('');
   }
-
 
   createItem(obj) {
     return ` <li class="section__blog-item">
@@ -71,20 +69,21 @@ export class Blog {
                                         ${obj.author}
                                     </div>
                                     <div class="data-box">
-                                        <time dateTime="${
-                                          obj.data.time
-                                        }" class="time text-h5"
-                                        >11 oct, 2019
+                                        <time dateTime class="time text-h5"
+                                        >${obj.data.time}
                                         </time
                                         >
                                         <span class="text-h5 dot">${
-                                          obj.data.minuts
-                                        }min read</span>
+                                          obj.runtime
+                                        } min duration</span>
                                         <span class="text-h5 dot comments">${
                                           obj.data.comments
                                         }</span>
                                         <ul class="rating-list">
-                                            ${this.createRatingList(obj.stars.full)}
+                                            ${
+        
+        this.createRatingList(obj.stars.n, obj.stars.full)
+    }
                                         </ul> 
                                     </div> 
                                 </div>
@@ -139,9 +138,9 @@ export class Blog {
                     ${this.createList(data)}
                 </ul> 
             </div>
-            <a href="${this.blog.button.href}" class="${
+            <button class="${
       this.blog.button.type
-    }">${this.blog.button.title}</a>
+    }" id="blog-lazy-loading">${this.blog.button.title}</button>
         </section>`;
   }
 }
