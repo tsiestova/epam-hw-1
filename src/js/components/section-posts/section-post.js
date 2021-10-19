@@ -1,7 +1,6 @@
 export class PostSection {
   constructor(postSection) {
     this.postSection = postSection;
-      console.log(this.postSection);
   }
 
     createGalleryItem(obj) {

@@ -13,7 +13,7 @@ import data from "./data.json";
 import { APIKEY } from "./config";
 // import { Slider} from "./slider";
 import {sliderPortfolio, sliderTestimonials} from "./sliderES5";
-import {BlogPost} from "./postES6";
+import {BlogPost, Movie} from "./postES6";
 
 document.addEventListener("DOMContentLoaded", function (event) {
   const applicationContainer = document.getElementById("app");
@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                       .then((data) => data.json())
                       .then((data) => {
                         item.runtime = data.runtime;
-                        return new BlogPost(item);
+                        return new Movie(item);
                       })
               )
           )

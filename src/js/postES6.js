@@ -1,7 +1,8 @@
 
 export class BlogPost {
-    constructor(obj) {
+    constructor(obj, type) {
         this.obj = obj;
+        this.type = type;
     }
 
     renderButton(type) {
@@ -55,7 +56,7 @@ export class BlogPost {
         }
                         <div
                             class="section__blog-person-info
-                  ${this.renderButton(this.obj.type)}
+                  ${this.renderButton(this.type)}
                 "
                         >
                             <div class="section__blog-person-info_wrap">
@@ -117,11 +118,13 @@ export class BlogPost {
         return this.createItem(data);
     }
 }
+
 // ************************************************************************************************
 
 export class Movie extends BlogPost {
     constructor(obj) {
         super(obj);
+        this.type = "video";
     }
 }
 
