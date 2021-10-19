@@ -6,21 +6,7 @@ export class BlogPost {
         this.type = type;
     }
 
-    createRatingList(n, full) {
-        const arr = [];
-
-        for(let i = 0; i < n; i++) {
-            if(i <= full) {
-                arr.push(`<li class="rating-item full"></li>`);
-            } else {
-                arr.push(`<li class="rating-item"></li>`);
-            }
-        }
-
-        return arr.join('');
-    }
-
-    createItem() {
+    createItem(rating = '') {
         return `<li class="section__blog-item">
                         ${
             this.obj.pic
@@ -35,9 +21,7 @@ export class BlogPost {
         }
                         <div
                             class="section__blog-person-info
-                  ${this.buttonClass}
-                "
-                        >
+                  ${this.buttonClass}">
                             <div class="section__blog-person-info_wrap">
                                 <figure class="section__blog-person_photo">
                                     <img
@@ -60,12 +44,7 @@ export class BlogPost {
                                         <span class="text-h5 dot comments">${
             this.obj.data.comments
         }</span>
-                                        <ul class="rating-list">
-                                            ${
-
-            this.createRatingList(this.obj.stars.n, this.obj.stars.full)
-        }
-                                        </ul> 
+                                        ${rating}
                                     </div> 
                                 </div>
                             </div> 
@@ -103,15 +82,40 @@ export class BlogPost {
 export class Movie extends BlogPost {
     constructor(obj) {
         super(obj);
-        this.buttonClass = "section__obj-person-info_video";
+        this.buttonClass = "section__blog-person-info_video";
         this.type = "video-button";
+    }
+
+    createRatingList(n, full) {
+        const arr = [];
+
+        for(let i = 0; i < n; i++) {
+            if(i <= full) {
+                arr.push(`<li class="rating-item full"></li>`);
+            } else {
+                arr.push(`<li class="rating-item"></li>`);
+            }
+        }
+
+        return arr.join('');
+    };
+
+    createItem() {
+        return super.createItem(`
+        <ul class="rating-list">
+                                            ${
+
+            this.createRatingList(this.obj.stars.n, this.obj.stars.full)
+        }
+                                        </ul> 
+        `);
     }
 }
 
 export class Music extends BlogPost {
     constructor(obj) {
         super(obj);
-        this.buttonClass = "section__obj-person-info_music";
+        this.buttonClass = "section__blog-person-info_music";
         this.type = "music";
     }
 }
@@ -119,13 +123,7 @@ export class Music extends BlogPost {
 export class Pic extends BlogPost {
     constructor(obj) {
         super(obj);
+        this.buttonClass = "section__blog-person-info_pic";
         this.type = "pic";
-    }
-}
-
-export class PostCard extends BlogPost {
-    constructor(obj) {
-        super(obj);
-        this.type = "section__obj-person-info_pic";;
     }
 }

@@ -109,8 +109,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
                   fetch(`${baseURL}/movie/${item.id}?api_key=${APIKEY}&language=en-US`)
                       .then((data) => data.json())
                       .then((data) => {
-                        item.runtime = data.runtime;
-                        return new Movie(item);
+                        let result = '';
+                        switch (item.type) {
+                          case 'video':
+                            result = new Movie(item);
+                            break;
+                          case 'music':
+                            result =  new Music(item);
+                            break;
+                          case 'pic':
+                            result =  new Pic(item);
+                            break;
+
+                          default:
+                            result = '';
+                        }
+
+                        return result;
                       })
               )
           )
