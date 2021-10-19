@@ -1,28 +1,9 @@
 
 export class BlogPost {
-    constructor(obj, type) {
+    constructor(obj, buttonClass, type) {
         this.obj = obj;
+        this.buttonClass = buttonClass;
         this.type = type;
-    }
-
-    renderButton(type) {
-        let str = "";
-        switch (type) {
-            case "video":
-                str = "section__obj-person-info_video";
-                break;
-            case "music":
-                str = "section__obj-person-info_music";
-                break;
-            case "pic":
-                str = "section__obj-person-info_pic";
-                break;
-
-            default:
-                str = "";
-        }
-
-        return str;
     }
 
     createRatingList(n, full) {
@@ -43,9 +24,7 @@ export class BlogPost {
         return `<li class="section__blog-item">
                         ${
             this.obj.pic
-                ? `<figure class="section__blog-item_video  ${
-                    this.obj.type === "video" ? "video-button" : ""
-                }">
+                ? `<figure class="section__blog-item_video  ${this.type}">
                             <img
                                 src="${this.obj.pic}"
                                 class="section__blog-image"
@@ -56,7 +35,7 @@ export class BlogPost {
         }
                         <div
                             class="section__blog-person-info
-                  ${this.renderButton(this.type)}
+                  ${this.buttonClass}
                 "
                         >
                             <div class="section__blog-person-info_wrap">
@@ -94,7 +73,7 @@ export class BlogPost {
                                 ${this.obj.title}
                             </div>
                             ${
-            this.obj.type === "music"
+            this.type === "music"
                 ? '<figure class="audio">' +
                 "                  <audio" +
                 "                    controls" +
@@ -124,9 +103,29 @@ export class BlogPost {
 export class Movie extends BlogPost {
     constructor(obj) {
         super(obj);
-        this.type = "video";
+        this.buttonClass = "section__obj-person-info_video";
+        this.type = "video-button";
     }
 }
 
+export class Music extends BlogPost {
+    constructor(obj) {
+        super(obj);
+        this.buttonClass = "section__obj-person-info_music";
+        this.type = "music";
+    }
+}
 
+export class Pic extends BlogPost {
+    constructor(obj) {
+        super(obj);
+        this.type = "pic";
+    }
+}
 
+export class PostCard extends BlogPost {
+    constructor(obj) {
+        super(obj);
+        this.type = "section__obj-person-info_pic";;
+    }
+}
