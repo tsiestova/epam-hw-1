@@ -45,7 +45,7 @@
     "title": "About us",
     "text": "This is who we are - or at least who we strive to be…"
   },
-  "post": {
+  "postSection": {
     "title": "Latest posts",
     "text": "Information is a source of learning. But unless it is organized, processed and available to the right people",
     "galleryList": [

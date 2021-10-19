@@ -61,7 +61,6 @@ console.log(calculateFibByCycle(7));
 
 function parseJson(json) {
   try {
-    JSON.parse(json);
     return JSON.parse(json);
   } catch (e) {
     return null;
@@ -76,6 +75,7 @@ console.log(parseJson('{name: JavaScript, company: xChange}'));
 //* ******************** task 3
 
 console.log('task 3');
+
 window.addEventListener('error', function(ev) {
   console.log(ev.type);
   console.warn(ev);
@@ -84,7 +84,7 @@ window.addEventListener('error', function(ev) {
 function parseJson2(str) {
   const obj = JSON.parse(str);
 
-  if (obj.hasOwnProperty('name') && obj.hasOwnProperty('company')) {
+  if (this.obj.hasOwnProperty('name') && this.obj.hasOwnProperty('company')) {
     return obj;
   }
 
