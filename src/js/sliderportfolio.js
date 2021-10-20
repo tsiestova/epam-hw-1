@@ -82,7 +82,7 @@ export class Sliderportfolio {
             this.list.appendChild(cloneNext);
         }
 
-        this.count = this.list.children.length; // кількість слайдів
+        this.count = this.list.children.length;
         this.render();
     }
 }

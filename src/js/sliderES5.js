@@ -1,7 +1,9 @@
-function Slider (time, visibleElements) {
+
+function Slider (time, visibleElements, list) {
 
     this.time = time;
     this.visibleElements = visibleElements;
+    this.list = list;
 
     this.render = function () {
         this.list.style.transform = `translateX(-${this.step * 100}%)`;
@@ -89,20 +91,6 @@ function SliderTestimonials(time, visibleElements) {
 
         this.sliderBox.addEventListener('mouseleave', () => this.startAnimation());
         this.sliderBox.addEventListener('mouseenter', () => clearTimeout(this.testimonialSliderMove));
-
-        //     this.target = document.getElementById('section-testimonials');
-        //     this.observer = new IntersectionObserver((entries) => {
-        //
-        //         entries.forEach(entry => {
-        //             if (entry.isIntersecting) {
-        //                 this.startAnimation();
-        //             } else {
-        //                 clearTimeout(this.testimonialSliderMove);
-        //             }
-        //         });
-        //     });
-        //     this.observer.observe(this.target);
-        // }
     }
 
     this.startAnimation = function () {
@@ -110,11 +98,6 @@ function SliderTestimonials(time, visibleElements) {
             this.moveRight();
             this.startAnimation();
         }, this.time)
-    }
-
-    this.destroy = function () {
-        clearTimeout(this.testimonialSliderMove);
-        this.observer.disconnect();
     }
 }
 
@@ -128,10 +111,10 @@ function SliderPorfolio (time, visibleElements) {
     this.init = function () {
         this.time = time;
         this.visibleElements = visibleElements;
+        this.list = document.getElementById('portfolio-list');
 
         this.step = 1;
         this.result = 0;
-        this.list = document.getElementById('portfolio-list');
 
         this.leftButton = document.getElementById('portfolio__flip-left');
         this.rightButton = document.getElementById('portfolio__flip-right');
@@ -167,11 +150,6 @@ function SliderPorfolio (time, visibleElements) {
             this.startAnimation();
         }, this.time)
     }
-
-    this.destroy = function () {
-            clearTimeout(this.portfolioSliderMove);
-            this.observer.disconnect();
-        }
 }
 
 export const sliderTestimonials = new SliderTestimonials(2500, 1);

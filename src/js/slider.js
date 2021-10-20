@@ -26,7 +26,7 @@ export class Slider {
 
     this.step = 1;
 
-    this.list = document.getElementById('slider-list');
+
     this.leftButton = document.getElementById('flip-left');
     this.rightButton = document.getElementById('flip-right');
     this.sliderBox = document.getElementById('testimonials-photo-list_wrap');
