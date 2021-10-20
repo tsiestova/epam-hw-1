@@ -89,20 +89,6 @@ function SliderTestimonials(time, visibleElements) {
 
         this.sliderBox.addEventListener('mouseleave', () => this.startAnimation());
         this.sliderBox.addEventListener('mouseenter', () => clearTimeout(this.testimonialSliderMove));
-
-        //     this.target = document.getElementById('section-testimonials');
-        //     this.observer = new IntersectionObserver((entries) => {
-        //
-        //         entries.forEach(entry => {
-        //             if (entry.isIntersecting) {
-        //                 this.startAnimation();
-        //             } else {
-        //                 clearTimeout(this.testimonialSliderMove);
-        //             }
-        //         });
-        //     });
-        //     this.observer.observe(this.target);
-        // }
     }
 
     this.startAnimation = function () {

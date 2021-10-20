@@ -3,7 +3,7 @@ import { Navigation } from "./components/navigation/navigation";
 import { Footer } from "./components/footer/footer";
 import { SectionTopContent } from "./components/top-section/top-section";
 import { About } from "./components/section-about/section-about";
-import {Post, PostSection} from "./components/section-posts/section-post";
+import {PostSection} from "./components/section-posts/section-post";
 import { Portfolio } from "./components/section-portfolio/section-portfolio";
 import { Testimonials } from "./components/section-testimonials/section-testimonials";
 import { Contacts } from "./components/section-contact/section-contacts";
@@ -13,7 +13,7 @@ import data from "./data.json";
 import { APIKEY } from "./config";
 // import { Slider} from "./slider";
 import {sliderPortfolio, sliderTestimonials} from "./sliderES5";
-import {BlogPost, Movie, Music, Pic} from "./postES6";
+import {Movie, Music, Pic} from "./postES6";
 
 document.addEventListener("DOMContentLoaded", function (event) {
   const applicationContainer = document.getElementById("app");
@@ -109,6 +109,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                   fetch(`${baseURL}/movie/${item.id}?api_key=${APIKEY}&language=en-US`)
                       .then((data) => data.json())
                       .then((data) => {
+                        item.runtime = data.runtime;
                         let result = '';
                         switch (item.type) {
                           case 'video':
