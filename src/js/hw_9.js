@@ -75,9 +75,10 @@ console.log(parseJson('{name: JavaScript, company: xChange}'));
 //* ******************** task 3
 
 console.log('task 3');
+
 window.addEventListener('error', function(ev) {
   console.log(ev.type);
-  console.warn(ev);
+  ev.preventDefault();
 });
 
 function parseJson2(str) {

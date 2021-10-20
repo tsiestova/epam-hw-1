@@ -74,8 +74,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
               'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
             let data = new Date(el.release_date);
             let dataStr = `${data.getDate()} ` + `${month[data.getMonth() + 1]}, ` + `${data.getFullYear()}`;
+
             let stars = (COUNT_OF_STARS * (el.vote_average * 10)) / 100;
 
+            console.log(el);
             return {
               id: el.id,
               stars: {
@@ -123,7 +125,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         blogPage = 1;
         loadBlogPages(blogPage).then((data) => {
           applicationContainer.innerHTML = renderBlog(data);
-          console.log(data);
 
           const blogLoadButton = document.getElementById('blog-lazy-loading');
           blogLoadButton.addEventListener('click', function () {
