@@ -99,9 +99,10 @@ export class Contacts {
                                     <a href="mailto:email@gmail.com">email@gmail.com</a>
                                 </div>
                             </form>
-                            <figure class="section__contact-map">
-                                <img src="assets/pic/map.png" alt="Map"/>
-                            </figure>
+<!--                            <figure id="contact-map" class="section__contact-map">-->
+<!--                                <img src="assets/pic/map.png" alt="Map"/>-->
+<!--                            </figure>-->
+                            <div id="contact-map"></div>
                         </div>
                     </div>
                 </div>

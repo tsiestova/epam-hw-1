@@ -68,6 +68,7 @@
 
   @include breakpoint(tablet) {
     max-width: 48%;
+    margin-right: 10px;
   }
 
   label {
@@ -148,8 +149,7 @@
   .column_right-wrap {
     @include breakpoint(tablet) {
       display: flex;
-      padding-left: 9px;
-      padding-top: 4px;
+      padding: 4px 4px 5px 9px;
     }
   }
 }
@@ -250,3 +250,7 @@
   }
 }
 
+#contact-map {
+  height: 467px;
+  width: 100%;
+}

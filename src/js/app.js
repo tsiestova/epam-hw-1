@@ -13,6 +13,7 @@ import data from "./data.json";
 import { APIKEY } from "./config";
 import { Slider} from "./slider";
 import { Sliderportfolio } from "./sliderportfolio";
+import { initMap } from "./map"
 
 document.addEventListener("DOMContentLoaded", function (event) {
   const applicationContainer = document.getElementById("app");
@@ -146,6 +147,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         applicationContainer.innerHTML = renderHome();
         testimonialsSlider = new Slider();
         portfolioSlider = new Sliderportfolio(1500, 3);
+
+        initMap();
     }
   }
 
