@@ -84,7 +84,7 @@ window.addEventListener('error', function(ev) {
 function parseJson2(str) {
   const obj = JSON.parse(str);
 
-  if (obj.hasOwnProperty('name') && obj.hasOwnProperty('company')) {
+  if (this.obj.hasOwnProperty('name') && this.obj.hasOwnProperty('company')) {
     return obj;
   }
 

@@ -3,11 +3,11 @@ export class Article {
     this.article = article;
   }
 
-  createReviewsItem(obj) {
+  createReviewsItem() {
     return `<li class="section__post_review_item">
                   <div class="section__blog-item section__blog-item_inner">
                     <figure class="section__blog-person_photo section__blog-person_photo_inner">
-                      <img src="${obj.src}" alt="person-photo" />
+                      <img src="${this.article.src}" alt="person-photo" />
                     </figure>
 
                     <div class="section__blog-person-info_wrap">
@@ -27,7 +27,7 @@ export class Article {
                               section__blog-person-name_inner
                             "
                               >
-                                ${obj.author}
+                                ${this.article.author}
                               </div>
                               <ul class="rating-list rating-list_inner">
                                 <li class="rating-item full"></li>
@@ -38,15 +38,15 @@ export class Article {
                               </ul>
                             </div>
                             <div class="data-box data-box_inner">
-                              <span class="text-h5">${obj.time}</span>
+                              <span class="text-h5">${this.article.time}</span>
                             </div>
                           </div>
 
                           <div class="section__blog-person-text text-h4">
-                            ${obj.text}
+                            ${this.article.text}
                           </div>
                           <div class="link-wrap">
-                            <a href="${obj.button.href}" class="${obj.button.type}">${obj.button.title}</a>
+                            <a href="${this.article.button.href}" class="${this.article.button.type}">${this.article.button.title}</a>
                           </div>
                         </div>
                       </div>

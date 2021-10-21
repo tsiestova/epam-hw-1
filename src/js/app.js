@@ -3,7 +3,7 @@ import { Navigation } from "./components/navigation/navigation";
 import { Footer } from "./components/footer/footer";
 import { SectionTopContent } from "./components/top-section/top-section";
 import { About } from "./components/section-about/section-about";
-import { Post } from "./components/section-posts/section-post";
+import {PostSection} from "./components/section-posts/section-post";
 import { Portfolio } from "./components/section-portfolio/section-portfolio";
 import { Testimonials } from "./components/section-testimonials/section-testimonials";
 import { Contacts } from "./components/section-contact/section-contacts";
@@ -11,9 +11,11 @@ import { Blog } from "./components/page-blog/page-blog";
 import { Article } from "./components/page-post/page-post";
 import data from "./data.json";
 import { APIKEY } from "./config";
-import { Slider} from "./slider";
-import { Sliderportfolio } from "./sliderportfolio";
-import { initMap } from "./map"
+// import { Slider} from "./slider";
+import {sliderPortfolio, sliderTestimonials} from "./sliderES5";
+import {Movie, Music, Pic} from "./postES6";
+import {initMap} from "./map";
+import {initBlogSearch} from "./blog-search";
 
 document.addEventListener("DOMContentLoaded", function (event) {
   const applicationContainer = document.getElementById("app");
@@ -22,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const footer = new Footer(navigation);
   const sectionTopContent = new SectionTopContent(data.blockContent);
   const about = new About(data.about);
-  const post = new Post(data.post);
+  const postSection = new PostSection(data.postSection);
   const portfolio = new Portfolio(data.portfolio);
   const testimonials = new Testimonials(data.testimonials);
   const contacts = new Contacts(data.contacts);
@@ -41,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         <div class="sections-wrap">
             ${sectionTopContent.render()} 
             ${about.render()}
-            ${post.render()}
+            ${postSection.render()}
             ${portfolio.render()}  
             ${testimonials.render()}
             ${contacts.render()}        
@@ -110,7 +112,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
                       .then((data) => data.json())
                       .then((data) => {
                         item.runtime = data.runtime;
-                        return item;
+                        let result = '';
+                        switch (item.type) {
+                          case 'video':
+                            result = new Movie(item);
+                            break;
+                          case 'music':
+                            result =  new Music(item);
+                            break;
+                          case 'pic':
+                            result =  new Pic(item);
+                            break;
+
+                          default:
+                            result = '';
+                        }
+
+                        return result;
                       })
               )
           )
@@ -123,8 +141,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
       case "#blog":
         blogPage = 1;
         loadBlogPages(blogPage).then((data) => {
+
           applicationContainer.innerHTML = renderBlog(data);
-          console.log(data);
 
           const blogLoadButton = document.getElementById('blog-lazy-loading');
           blogLoadButton.addEventListener('click', function () {
@@ -136,8 +154,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
               list.appendChild(div);
             })
           });
-        });
 
+          initBlogSearch();
+        });
         break;
       case "#post":
         applicationContainer.innerHTML = renderPost();
@@ -145,8 +164,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
       default:
         applicationContainer.innerHTML = renderHome();
-        testimonialsSlider = new Slider();
-        portfolioSlider = new Sliderportfolio(1500, 3);
+        // testimonialsSlider = new Slider();
+        sliderTestimonials.init();
+        sliderTestimonials.startAnimation();
+        sliderPortfolio.init();
+        sliderPortfolio.startAnimation();
 
         initMap();
     }
@@ -157,7 +179,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
       testimonialsSlider.destroy();
       testimonialsSlider = null;
     }
+
+    if(portfolioSlider) {
+      portfolioSlider.destroy();
+      portfolioSlider = null;
+    }
   }
+
   renderPage(location.hash);
 
   window.onbeforeunload = function () {

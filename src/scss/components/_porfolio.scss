@@ -192,3 +192,7 @@
   height: 100%;
   object-fit: cover;
 }
+
+#portfolio-list {
+  transition: transform 2s ease-in-out;
+}

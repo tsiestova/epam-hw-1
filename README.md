@@ -38,14 +38,29 @@ npm run start
 - [Blog page](http://localhost:8080/main.html#blog)
 - [Post page](http://localhost:8080/main.html#post)
   
-6. Homework 6 - implementation of slider (src/js/slider.js)
+6. Homework 6 - implementation of slider on the Home page, section 'Testimonials' (src/js/slider.js)
   [github](https://github.com/tsiestova/epam-hw-1/tree/HW_06)
-- [Main page](http://localhost:8080/main.html), section 'Testimonials'
+- [Main page](http://localhost:8080/main.html)
 
 7. Homework 7 - API calls one the Blog page
    [github](https://github.com/tsiestova/epam-hw-1/tree/HW_07)
 - [Blog page](http://localhost:8080/main.html#blog) (src/js/app.js, src/js/components/page-blog.js)
-- [Blog page](http://localhost:8080/main.html#blog)
 
 9. Homework 9 - 
    [github](https://github.com/tsiestova/epam-hw-1/tree/HW_09) (error.html, js/hw_9.js)
+   
+10. Homework 10 - implementation of slider  on the Home page, section 'Latest porfolio'
+- [Main page](http://localhost:8080/main.html) (js/sliderES5.js)
+  [github](https://github.com/tsiestova/epam-hw-1/tree/HW_10) 
+
+11. Homework 11 - creating the class Post and 3 instances (js/postES6.js, js/app.js)
+- [Blog page](http://localhost:8080/main.html#blog)
+  
+  [github](https://github.com/tsiestova/epam-hw-1/tree/HW_11) 
+
+12. Homework 12 
+
+-- google maps API (section Contacts of Main page) - (js/map.js)
+
+- [Main page](http://localhost:8080/main.html) 
+

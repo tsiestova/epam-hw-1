@@ -126,16 +126,16 @@ function checkNumber(num) {
   }
 
   if (isPrime(num)) {
-    obj.isPrime = true;
+    this.obj.isPrime = true;
   }
 
   if (num % 10 === 0) {
-    obj.isEven = true;
-    obj.isMulBy10 = true;
+    this.obj.isEven = true;
+    this.obj.isMulBy10 = true;
   }
 
   if (num % 2 === 0) {
-    obj.isEven = true;
+    this.obj.isEven = true;
   }
 
   return Object.values(obj);
@@ -149,5 +149,4 @@ console.log(checkNumber(7));
 console.log(checkNumber(46));
 console.log(checkNumber(-7));
 console.log(checkNumber(-10));
-
 

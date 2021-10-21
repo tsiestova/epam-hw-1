@@ -123,11 +123,11 @@
 
 }
 
-.active {
-  transform: translateX(-100%);
-  transition: transform 0.8s ease-in-out;
-}
+//.active {
+//  transform: translateX(-100%);
+//  transition: transform 0.8s ease-in-out;
+//}
 
-#slider-list, #portfolio-list {
+#slider-list {
   transition: transform 0.8s ease-in-out;
 }

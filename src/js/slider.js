@@ -22,7 +22,6 @@ export class Slider {
         }
       });
     });
-
     this.observer.observe(this.target);
 
     this.step = 1;
@@ -40,7 +39,6 @@ export class Slider {
 
     this.list.appendChild(cloneFirst);
     this.list.insertBefore(cloneLast, elFirst);
-
 
     this.count = this.list.children.length;
 
@@ -60,8 +58,6 @@ export class Slider {
     if(this.step <= 0) {
       this.list.addEventListener('transitionend', this.animateLeft);
     }
-
-    console.log(`test` + this.step);
 
     this.render();
   }

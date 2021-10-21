@@ -39,17 +39,17 @@ export class Portfolio {
                 <div class="section__portfolio-text text-center text-h4">
                    ${this.portfolio.text} 
                 </div>
-
+            <div id="portfolio-slider-box"> 
                 <div class="slider-wrap">
                     <ul id="portfolio-list" class="gallery__slider">
                        ${this.createGalleryList()}
                     </ul>
                 </div>
- 
                 <div class="flip-wrap text-center">
                     <button id="portfolio__flip-left" class="flip left"></button>
                     <button id="portfolio__flip-right" class="flip right"></button>
                 </div>
+            </div>
                 <a href="${this.portfolio.button.href}" class="${
       this.portfolio.button.type
     }"> ${this.portfolio.button.title} </a>
