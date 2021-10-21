@@ -123,13 +123,16 @@ export class Blog {
             this.blog.title
         }</h2>
                 <div class="search-wrap">
-                    <div class="section__blog-input-wrap input-search">
-                        <input id="blog-list-search"
-                            type="search"
-                            placeholder="Search by author"
-                            class="input" 
-                        />
-                    </div>
+                    <form id="blog-list__search-form" class="section__blog-input-wrap input-search">
+                        <input 
+                        required 
+                        pattern="^[A-Z][a-z0-9:?!,. ]+.{6,60}" 
+                        id="blog-list__search-input"
+                        type="search" 
+                        placeholder="Search by author"
+                        class="input" 
+                         >
+                    </form> 
                 </div> 
                 <ul class="section__blog-list">
                     ${this.createList(data)}

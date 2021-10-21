@@ -1,15 +1,9 @@
-export const initBlogSearch = function() {
-    const searchInput = document.getElementById('blog-list-search');
-    let regex = /^[A-Z][a-z0-9:?!,. ]+.{6,60}/
 
-    searchInput.focus();
-    searchInput.addEventListener('input', function (e) {
-        if (!e.target.value) {
-            alert('Please enter your title');
-            searchInput.focus();
-        }
-        if(regex.test(e.target.value)) {
+export const initBlogSearch = function () {
 
-        }
-    })
-};
+    const input = document.getElementById('blog-list__search-input');
+
+    input.addEventListener('invalid', (event) => {
+        input.setCustomValidity(`First letter uppercase \n At least 6 characters. \n Only Latin characters \n Allowed symbols - '?!,.:'`);
+    });
+}

@@ -133,6 +133,8 @@ audio {
 }
 
 .input-search {
+  -webkit-appearance: none;
+
   &:before {
     @extend .icon;
     @extend .icon-a-icon-search-1;
@@ -141,6 +143,9 @@ audio {
     position: absolute;
     right: 11px;
     top: 13px;
+  }
+  .invalid {
+    border-color: red;
   }
 }
 

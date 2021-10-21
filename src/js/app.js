@@ -139,10 +139,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
     cleanUp();
     switch (href) {
       case "#blog":
+
         blogPage = 1;
         loadBlogPages(blogPage).then((data) => {
 
           applicationContainer.innerHTML = renderBlog(data);
+          initBlogSearch();
 
           const blogLoadButton = document.getElementById('blog-lazy-loading');
           blogLoadButton.addEventListener('click', function () {
@@ -154,12 +156,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
               list.appendChild(div);
             })
           });
-
-          initBlogSearch();
         });
+
         break;
+
       case "#post":
         applicationContainer.innerHTML = renderPost();
+
         break;
 
       default:
