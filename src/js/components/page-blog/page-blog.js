@@ -113,7 +113,7 @@ export class Blog {
     }
 
     createList(data) {
-        return data.map((el) => el.render()).join("");
+        return data.map((el) => el.render()).join('');
     }
 
     render(data) {
@@ -126,6 +126,7 @@ export class Blog {
                     <form id="blog-list__search-form" class="section__blog-input-wrap input-search">
                         <input 
                         required 
+                        autocomplete="off"
                         pattern="^[A-Z][a-z0-9:?!,. ]+.{6,60}" 
                         id="blog-list__search-input"
                         type="search" 

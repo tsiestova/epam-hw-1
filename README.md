@@ -63,5 +63,6 @@ npm run start
 -- title validation (js/components/page-blog.js)
 -- google maps API (section Contacts of Main page) - (js/map.js)
 
-- [Main page](http://localhost:8080/main.html) 
+  [Blog page](http://localhost:8080/main.html#blog)
+  [github](https://github.com/tsiestova/epam-hw-1/tree/HW_12) 
 

@@ -207,6 +207,7 @@ audio {
 
 .section__blog-person-info_video {
   position: relative;
+  width: 100%;
 
   &:before {
     @extend .icon;

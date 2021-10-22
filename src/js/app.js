@@ -10,12 +10,9 @@ import { Contacts } from "./components/section-contact/section-contacts";
 import { Blog } from "./components/page-blog/page-blog";
 import { Article } from "./components/page-post/page-post";
 import data from "./data.json";
-import { APIKEY } from "./config";
-// import { Slider} from "./slider";
 import {sliderPortfolio, sliderTestimonials} from "./sliderES5";
-import {Movie, Music, Pic} from "./postES6";
 import {initMap} from "./map";
-import {initBlogSearch} from "./blog-search";
+import {loadBlogPages, initBlogSearch, loadBSearchPages, loadSearchPages} from "./movie-search";
 
 document.addEventListener("DOMContentLoaded", function (event) {
   const applicationContainer = document.getElementById("app");
@@ -32,10 +29,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const article = new Article(data.article);
   let testimonialsSlider;
   let portfolioSlider;
-  const COUNT_OF_STARS = 5;
   let blogPage;
-
-  let baseURL = "https://api.themoviedb.org/3";
+  let userInput;
 
   function renderHome() {
     return `
@@ -68,72 +63,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     `;
   }
 
-  const loadBlogPages = function (blogPage) {
-    return fetch(`${baseURL}/movie/popular?api_key=${APIKEY}&page=${blogPage}`)
-        .then((result) => result.json())
-        .then((data) => {
-          return data.results.map((el) => {
-            const month = ['jan', 'feb', 'mar', 'apr', 'may', 'jun',
-              'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
-            let data = new Date(el.release_date);
-            let dataStr = `${data.getDate()} ` + `${month[data.getMonth() + 1]}, ` + `${data.getFullYear()}`;
-            let stars = (COUNT_OF_STARS * (el.vote_average * 10)) / 100;
-
-            return {
-              id: el.id,
-              stars: {
-                n: COUNT_OF_STARS,
-                full: Math.floor(stars)
-              },
-              type: "video",
-              // pic: "assets/pic/blog-img1.png",
-              pic: `https://image.tmdb.org/t/p/original/${el.backdrop_path}`,
-              // pic: `${baseURL}/movie/popular?api_key=${APIKEY}${el.backdrop_path}`,
-              src: `https://image.tmdb.org/t/p/original/${el.poster_path}`,
-              author: "Neil Richards",
-              title: el.original_title,
-              text: el.overview,
-              button: {
-                title: "Read more",
-                href: "#",
-                type: "btn",
-              },
-              data: {
-                time: dataStr,
-                minuts: "10",
-                comments: el.vote_count,
-              },
-            };
-          });
-        }).then((response) => {
-          return Promise.all(
-              response.map((item) =>
-                  fetch(`${baseURL}/movie/${item.id}?api_key=${APIKEY}&language=en-US`)
-                      .then((data) => data.json())
-                      .then((data) => {
-                        item.runtime = data.runtime;
-                        let result = '';
-                        switch (item.type) {
-                          case 'video':
-                            result = new Movie(item);
-                            break;
-                          case 'music':
-                            result =  new Music(item);
-                            break;
-                          case 'pic':
-                            result =  new Pic(item);
-                            break;
-
-                          default:
-                            result = '';
-                        }
-
-                        return result;
-                      })
-              )
-          )
-        });
-  }
 
   function renderPage(href) {
     cleanUp();
@@ -142,9 +71,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         blogPage = 1;
         loadBlogPages(blogPage).then((data) => {
-
           applicationContainer.innerHTML = renderBlog(data);
-          initBlogSearch();
 
           const blogLoadButton = document.getElementById('blog-lazy-loading');
           blogLoadButton.addEventListener('click', function () {
@@ -156,7 +83,34 @@ document.addEventListener("DOMContentLoaded", function (event) {
               list.appendChild(div);
             })
           });
+
+
+          const input = document.getElementById('blog-list__search-input');
+          input.addEventListener('invalid', (event) => {
+            input.setCustomValidity(`First letter uppercase \n At least 6 characters. \n Only Latin characters \n Allowed symbols - '?!,.:'`);
+          });
+          const throttle = (cb, time) => {
+            clearTimeout(window.throttleTimout);
+            window.throttleTimout = setTimeout(() => {
+              cb();
+            }, time);
+          };
+          input.addEventListener('input', (e) => {
+            userInput = e.target.value;
+            throttle(() => {
+              loadSearchPages(blogPage, userInput).then((data) => {
+
+                applicationContainer.innerHTML = '';
+                applicationContainer.innerHTML = renderBlog(data);
+
+              });
+            }, 1000);
+          });
+
         });
+
+
+
 
         break;
 
