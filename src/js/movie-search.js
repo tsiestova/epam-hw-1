@@ -74,7 +74,7 @@ export const loadBlogPages = function (page) {
         });
 }
 
-export const loadSearchPages = function (page, value) {
+export const loadSearchPagesByTitle = function (page, value) {
     return fetch(
         `${baseURL}/search/multi?api_key=${APIKEY}&language=en-US&page=${page}&include_adult=false&query=${value}`
     )
@@ -118,7 +118,6 @@ export const loadSearchPages = function (page, value) {
                     fetch(`${baseURL}/movie/${item.id}?api_key=${APIKEY}&language=en-US`)
                         .then((data) => data.json())
                         .then((data) => {
-                            console.log(data);
 
                             item.title = data.original_title;
                             item.runtime = data.runtime;
@@ -132,8 +131,13 @@ export const loadSearchPages = function (page, value) {
 };
 
 
+export const lazyLoading = (func, page, blog, input) => {
+        func(page, input).then((data) => {
+        const div = document.createElement('div');
+        div.innerHTML = blog.createList(data);
+        const list = document.querySelector('.section__blog-list');
+        list.appendChild(div);
+    })
 
-
-
-
+}
 

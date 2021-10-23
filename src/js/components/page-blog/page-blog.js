@@ -125,10 +125,23 @@ export class Blog {
                 <div class="search-wrap">
                     <form id="blog-list__search-form" class="section__blog-input-wrap input-search">
                         <input 
+                        data-value="blog__input-search"
                         required 
                         autocomplete="off"
                         pattern="^[A-Z][a-z0-9:?!,. ]+.{6,60}" 
-                        id="blog-list__search-input"
+                        id="blog-list__search-input_title"
+                        type="search" 
+                        placeholder="Search by title"
+                        class="input" 
+                         >
+                    </form> 
+                      <form id="blog-list__search-form" class="section__blog-input-wrap input-search">
+                        <input 
+                        data-value="blog__input-search"
+                        required 
+                        autocomplete="off"
+                        pattern="^[A-Z][a-z0-9:?!,. ]+.{6,60}" 
+                        id="blog-list__search-input_author"
                         type="search" 
                         placeholder="Search by author"
                         class="input" 

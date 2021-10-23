@@ -12,7 +12,7 @@ import { Article } from "./components/page-post/page-post";
 import data from "./data.json";
 import {sliderPortfolio, sliderTestimonials} from "./sliderES5";
 import {initMap} from "./map";
-import {loadBlogPages, initBlogSearch, loadBSearchPages, loadSearchPages} from "./movie-search";
+import {loadBlogPages, initBlogSearch, loadBSearchPages, loadSearchPagesByTitle, lazyLoading} from "./movie-search";
 
 document.addEventListener("DOMContentLoaded", function (event) {
   const applicationContainer = document.getElementById("app");
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   let testimonialsSlider;
   let portfolioSlider;
   let blogPage;
-  let userInput;
+  let userInput = '';
 
   function renderHome() {
     return `
@@ -68,49 +68,79 @@ document.addEventListener("DOMContentLoaded", function (event) {
     cleanUp();
     switch (href) {
       case "#blog":
-
         blogPage = 1;
+
         loadBlogPages(blogPage).then((data) => {
           applicationContainer.innerHTML = renderBlog(data);
 
+          const input = document.getElementById('blog-list__search-input_title');
+
+//**********************
+
+          // const inputs = document.querySelectorAll('[data-value="blog__input-search"]');
+          //
+          // inputs.forEach((input) => {
+          //   input.addEventListener('click', function () {
+          //    let id = input.getAttribute('id');
+          //    if(id === 'blog-list__search-input_title') {
+          //
+          //    }
+          //     if(id === 'blog-list__search-input_author') {
+          //
+          //     }
+          //   })
+          // })
+
+
+ //**********************
+
           const blogLoadButton = document.getElementById('blog-lazy-loading');
+
           blogLoadButton.addEventListener('click', function () {
             blogPage += 1;
-            loadBlogPages(blogPage).then((data) => {
-              const div = document.createElement('div');
-              div.innerHTML = blog.createList(data);
-              const list = document.querySelector('.section__blog-list');
-              list.appendChild(div);
-            })
+            lazyLoading (loadBlogPages, blogPage, blog);
+
+            console.log(userInput);
+
+            // loadBlogPages(blogPage).then((data) => {
+            //   const div = document.createElement('div');
+            //   div.innerHTML = blog.createList(data);
+            //   const list = document.querySelector('.section__blog-list');
+            //   list.appendChild(div);
+            // })
           });
 
 
-          const input = document.getElementById('blog-list__search-input');
           input.addEventListener('invalid', (event) => {
             input.setCustomValidity(`First letter uppercase \n At least 6 characters. \n Only Latin characters \n Allowed symbols - '?!,.:'`);
           });
+
+
           const throttle = (cb, time) => {
             clearTimeout(window.throttleTimout);
             window.throttleTimout = setTimeout(() => {
               cb();
             }, time);
           };
+
           input.addEventListener('input', (e) => {
             userInput = e.target.value;
             throttle(() => {
-              loadSearchPages(blogPage, userInput).then((data) => {
-
+              loadSearchPagesByTitle(blogPage, userInput).then((data) => {
                 applicationContainer.innerHTML = '';
                 applicationContainer.innerHTML = renderBlog(data);
-
               });
             }, 1000);
           });
 
+          // blogLoadButton.addEventListener('click', function () {
+          //   blogPage += 1;
+          //   console.log(blogPage);
+          //   lazyLoading (loadSearchPages, blogPage, blog, userInput);
+          //   console.log(userInput);
+          // });
+
         });
-
-
-
 
         break;
 
