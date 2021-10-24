@@ -12,7 +12,14 @@ import { Article } from "./components/page-post/page-post";
 import data from "./data.json";
 import {sliderPortfolio, sliderTestimonials} from "./sliderES5";
 import {initMap} from "./map";
-import {loadBlogPages, initBlogSearch, loadBSearchPages, loadSearchPagesByTitle, lazyLoading} from "./movie-search";
+import {
+  loadBlogPages,
+  initBlogSearch,
+  loadBSearchPages,
+  loadSearchPagesByTitle,
+  lazyLoading,
+  loadSearchPagesByAuthor
+} from "./movie-search";
 
 document.addEventListener("DOMContentLoaded", function (event) {
   const applicationContainer = document.getElementById("app");
@@ -72,49 +79,172 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         loadBlogPages(blogPage).then((data) => {
           applicationContainer.innerHTML = renderBlog(data);
+          let id;
+          // let url;
+          // const input = document.getElementById('blog-list__search-input_title');
+          const inputs = document.querySelectorAll('[data-value="blog__input-search"]');
+          const form = document.getElementById('blog-list__search-form');
+          const searchByTitle = document.getElementById('blog-list__search-input_title');
+          const searchByAuthor = document.getElementById('blog-list__search-input_author');
 
-          const input = document.getElementById('blog-list__search-input_title');
+          form.addEventListener('submit', (e) => {
+            e.preventDefault();
+          })
 
-//**********************
+          searchByTitle.addEventListener('input', (e) => {
+            blogPage = 1;
+            const target = e.target;
+            const value = target.value.trim();
 
-          // const inputs = document.querySelectorAll('[data-value="blog__input-search"]');
+            console.log('searchByTitle');
+
+            if (!value) {
+              loadBlogPages(blogPage)
+                  .then((data) => {
+                    const div = document.createElement('div');
+                    const list = document.querySelector('.section__blog-list');
+                    div.innerHTML = blog.createList(data);
+                    list.innerHTML = '';
+                    list.appendChild(div);
+                  });
+              return;
+            }
+
+            if (target.validity.patternMismatch) {
+              return;
+            }
+
+            searchByAuthor.value = '';
+
+            throttle(() => {
+              loadSearchPagesByTitle(blogPage, value).then((data) => {
+                const div = document.createElement('div');
+
+                if (data.length) {
+                  div.innerHTML = blog.createList(data);
+                } else {
+                  div.innerHTML = '<h1>No data for you request</h1>';
+                }
+
+                const list = document.querySelector('.section__blog-list');
+                list.innerHTML = '';
+                list.appendChild(div);
+              });
+            }, 500)
+          });
+
+
+          searchByAuthor.addEventListener('input', (e) => {
+            blogPage = 1;
+            const target = e.target;
+            const value = target.value.trim();
+
+            if (!value) {
+              loadBlogPages(blogPage)
+                  .then((data) => {
+                    const div = document.createElement('div');
+                    const list = document.querySelector('.section__blog-list');
+                    div.innerHTML = blog.createList(data);
+                    list.innerHTML = '';
+                    list.appendChild(div);
+                  });
+              return;
+            }
+
+            if (!target.validity.valid) {
+              return;
+            }
+
+            searchByTitle.value = '';
+
+            throttle(() => {
+              loadSearchPagesByAuthor(blogPage, value).then((data) => {
+                const div = document.createElement('div');
+
+                if (data.length) {
+                  div.innerHTML = blog.createList(data);
+                } else {
+                  div.innerHTML = '<h1>No data for you request</h1>';
+                }
+
+                const list = document.querySelector('.section__blog-list');
+                list.innerHTML = '';
+                list.appendChild(div);
+              });
+            }, 500)
+          });
+
+
+
+
+          // searchByAuthor.addEventListener('input', (e) => {
+          //   blogPage = 1;
           //
-          // inputs.forEach((input) => {
-          //   input.addEventListener('click', function () {
-          //    let id = input.getAttribute('id');
-          //    if(id === 'blog-list__search-input_title') {
+          //   if (!e.target.validity.valid) {
+          //     return;
+          //   }
           //
-          //    }
-          //     if(id === 'blog-list__search-input_author') {
+          //   userInput = e.target.value;
+          //   searchByTitle.value = '';
           //
-          //     }
-          //   })
-          // })
+          //   throttle(() => {
+          //     loadSearchPagesByAuthor(blogPage, userInput).then((data) => {
+          //       const div = document.createElement('div');
+          //       div.innerHTML = blog.createList(data);
+          //       const list = document.querySelector('.section__blog-list');
+          //       list.innerHTML = '';
+          //       list.appendChild(div);
+          //     });
+          //   }, 500)
+          // });
+          //
 
+          inputs.forEach((input) => {
+            input.addEventListener('click', function () {
+             id = input.getAttribute('id');
+            })
 
- //**********************
+            input.addEventListener('invalid', (event) => {
+              input.setCustomValidity(`First letter uppercase \n At least 6 characters. \n Only Latin characters \n Allowed symbols - '?!,.:'`);
+            });
+          })
 
           const blogLoadButton = document.getElementById('blog-lazy-loading');
 
           blogLoadButton.addEventListener('click', function () {
             blogPage += 1;
-            lazyLoading (loadBlogPages, blogPage, blog);
 
-            console.log(userInput);
+            switch (true) {
+              case !!searchByTitle.value:
+                 loadSearchPagesByTitle(blogPage, searchByTitle.value)
+                   .then((data) => {
+                        const div = document.createElement('div');
+                        div.innerHTML = blog.createList(data);
+                        const list = document.querySelector('.section__blog-list');
+                        list.appendChild(div);
+                      });
+                break;
 
-            // loadBlogPages(blogPage).then((data) => {
-            //   const div = document.createElement('div');
-            //   div.innerHTML = blog.createList(data);
-            //   const list = document.querySelector('.section__blog-list');
-            //   list.appendChild(div);
-            // })
+              case !!searchByAuthor.value:
+                loadSearchPagesByAuthor(blogPage, searchByAuthor.value)
+                  .then((data) => {
+                        const div = document.createElement('div');
+                        div.innerHTML = blog.createList(data);
+                        const list = document.querySelector('.section__blog-list');
+                        list.appendChild(div);
+                      });
+                break;
+
+              default:
+                loadBlogPages(blogPage)
+                    .then((data) => {
+                      const div = document.createElement('div');
+                      div.innerHTML = blog.createList(data);
+                      const list = document.querySelector('.section__blog-list');
+                      list.appendChild(div);
+                    });
+            }
           });
-
-
-          input.addEventListener('invalid', (event) => {
-            input.setCustomValidity(`First letter uppercase \n At least 6 characters. \n Only Latin characters \n Allowed symbols - '?!,.:'`);
-          });
-
 
           const throttle = (cb, time) => {
             clearTimeout(window.throttleTimout);
@@ -122,24 +252,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
               cb();
             }, time);
           };
-
-          input.addEventListener('input', (e) => {
-            userInput = e.target.value;
-            throttle(() => {
-              loadSearchPagesByTitle(blogPage, userInput).then((data) => {
-                applicationContainer.innerHTML = '';
-                applicationContainer.innerHTML = renderBlog(data);
-              });
-            }, 1000);
-          });
-
-          // blogLoadButton.addEventListener('click', function () {
-          //   blogPage += 1;
-          //   console.log(blogPage);
-          //   lazyLoading (loadSearchPages, blogPage, blog, userInput);
-          //   console.log(userInput);
-          // });
-
         });
 
         break;

@@ -127,7 +127,7 @@ export class Blog {
                         <input 
                         data-value="blog__input-search"
                         required 
-                        autocomplete="off"
+                
                         pattern="^[A-Z][a-z0-9:?!,. ]+.{6,60}" 
                         id="blog-list__search-input_title"
                         type="search" 
@@ -139,7 +139,7 @@ export class Blog {
                         <input 
                         data-value="blog__input-search"
                         required 
-                        autocomplete="off"
+                       
                         pattern="^[A-Z][a-z0-9:?!,. ]+.{6,60}" 
                         id="blog-list__search-input_author"
                         type="search" 

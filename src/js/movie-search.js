@@ -87,7 +87,8 @@ export const loadSearchPagesByTitle = function (page, value) {
                     let data = new Date(el.release_date);
                     let dataStr = `${data.getDate()} ` + `${month[data.getMonth() + 1]}, ` + `${data.getFullYear()}`;
                     let stars = (COUNT_OF_STARS * (el.vote_average * 10)) / 100;
-                    return {
+
+                    let item = {
                         id: el.id,
                         stars: {
                             n: COUNT_OF_STARS,
@@ -110,18 +111,19 @@ export const loadSearchPagesByTitle = function (page, value) {
                             comments: el.vote_count,
                         }
                     };
+                    return item;
                 });
         })
+
         .then((response) => {
             return Promise.all(
                 response.map((item) =>
                     fetch(`${baseURL}/movie/${item.id}?api_key=${APIKEY}&language=en-US`)
                         .then((data) => data.json())
                         .then((data) => {
-
                             item.title = data.original_title;
                             item.runtime = data.runtime;
-                            // console.log(item);
+
                             return new Movie(item);
 
                         })
@@ -130,14 +132,69 @@ export const loadSearchPagesByTitle = function (page, value) {
         });
 };
 
+export const loadSearchPagesByAuthor = function (page, value) {
+    return fetch(
+        `${baseURL}/search/person?api_key=${APIKEY}&language=en-US&page=${page}&include_adult=false&query=${value}`
 
-export const lazyLoading = (func, page, blog, input) => {
-        func(page, input).then((data) => {
-        const div = document.createElement('div');
-        div.innerHTML = blog.createList(data);
-        const list = document.querySelector('.section__blog-list');
-        list.appendChild(div);
-    })
+    )
+        .then((result) => result.json())
+        .then((data) => {
+            console.log(data.results);
 
-}
+            return data.results
+
+                .map((el) => {
+                    return el.known_for.map((el) => {
+
+                   let data = new Date(el.release_date);
+                   let dataStr = `${data.getDate()} ` + `${month[data.getMonth() + 1]}, ` + `${data.getFullYear()}`;
+                   let stars = (COUNT_OF_STARS * (el.vote_average * 10)) / 100;
+
+                   let item = {
+                       id: el.id,
+                       stars: {
+                           n: COUNT_OF_STARS,
+                           full: Math.floor(stars)
+                       },
+                       type: el.media_type,
+                       pic: `https://image.tmdb.org/t/p/original/${el.backdrop_path}`,
+                       src: `https://image.tmdb.org/t/p/original/${el.poster_path}`,
+                       author: "",
+                       title: el.original_title,
+                       text: el.overview,
+                       button: {
+                           title: "Read more",
+                           href: "#",
+                           type: "btn",
+                       },
+                       data: {
+                           time: dataStr,
+                           minuts: '',
+                           comments: el.vote_count,
+                       }
+                   };
+
+                        return item;
+               })
+
+            }).flat();
+        })
+
+        .then((response) => {
+            return Promise.all(
+                response.map((item) =>
+                    fetch(`${baseURL}/movie/${item.id}?api_key=${APIKEY}&language=en-US`)
+                        .then((data) => data.json())
+                        .then((data) => {
+                            item.title = data.original_title;
+                            item.runtime = data.runtime;
+
+                            return new Movie(item);
+                        })
+                )
+            );
+        });
+
+};
+
 
