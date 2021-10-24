@@ -50,6 +50,7 @@ export const loadBlogPages = function (page) {
                     fetch(`${baseURL}/movie/${item.id}?api_key=${APIKEY}&language=en-US`)
                         .then((data) => data.json())
                         .then((data) => {
+                            console.log(item.id);
                             item.runtime = data.runtime;
                             let result = '';
                             switch (item.type) {
@@ -97,7 +98,7 @@ export const loadSearchPagesByTitle = function (page, value) {
                         type: el.media_type,
                         pic: `https://image.tmdb.org/t/p/original/${el.backdrop_path}`,
                         src: `https://image.tmdb.org/t/p/original/${el.poster_path}`,
-                        author: "",
+                        author: "Neil Richards",
                         title: 'el.name',
                         text: el.overview,
                         button: {
@@ -159,7 +160,7 @@ export const loadSearchPagesByAuthor = function (page, value) {
                        type: el.media_type,
                        pic: `https://image.tmdb.org/t/p/original/${el.backdrop_path}`,
                        src: `https://image.tmdb.org/t/p/original/${el.poster_path}`,
-                       author: "",
+                       author: "Neil Richards",
                        title: el.original_title,
                        text: el.overview,
                        button: {
@@ -196,5 +197,6 @@ export const loadSearchPagesByAuthor = function (page, value) {
         });
 
 };
+
 
 

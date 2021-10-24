@@ -14,10 +14,7 @@ import {sliderPortfolio, sliderTestimonials} from "./sliderES5";
 import {initMap} from "./map";
 import {
   loadBlogPages,
-  initBlogSearch,
-  loadBSearchPages,
   loadSearchPagesByTitle,
-  lazyLoading,
   loadSearchPagesByAuthor
 } from "./movie-search";
 
@@ -37,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
   let testimonialsSlider;
   let portfolioSlider;
   let blogPage;
-  let userInput = '';
 
   function renderHome() {
     return `
@@ -70,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     `;
   }
 
-
   function renderPage(href) {
     cleanUp();
     switch (href) {
@@ -80,12 +75,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
         loadBlogPages(blogPage).then((data) => {
           applicationContainer.innerHTML = renderBlog(data);
           let id;
-          // let url;
-          // const input = document.getElementById('blog-list__search-input_title');
           const inputs = document.querySelectorAll('[data-value="blog__input-search"]');
           const form = document.getElementById('blog-list__search-form');
           const searchByTitle = document.getElementById('blog-list__search-input_title');
           const searchByAuthor = document.getElementById('blog-list__search-input_author');
+
+          let localStorageTitle = localStorage.getItem('title');
+          let localStorageAuthor = localStorage.getItem('author');
+
+          localStorageTitle ? searchByTitle.value = localStorageTitle : searchByAuthor.value = localStorageAuthor;
 
           form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -95,8 +93,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
             blogPage = 1;
             const target = e.target;
             const value = target.value.trim();
-
-            console.log('searchByTitle');
+            localStorage.setItem('title', value);
+            localStorage.setItem('author', '');
 
             if (!value) {
               loadBlogPages(blogPage)
@@ -138,6 +136,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
             blogPage = 1;
             const target = e.target;
             const value = target.value.trim();
+            localStorage.setItem('author', value);
+            localStorage.setItem('title', '');
 
             if (!value) {
               loadBlogPages(blogPage)
@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
               return;
             }
 
-            if (!target.validity.valid) {
+            if (target.validity.patternMismatch) {
               return;
             }
 
@@ -174,30 +174,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }, 500)
           });
 
-
-
-
-          // searchByAuthor.addEventListener('input', (e) => {
-          //   blogPage = 1;
-          //
-          //   if (!e.target.validity.valid) {
-          //     return;
-          //   }
-          //
-          //   userInput = e.target.value;
-          //   searchByTitle.value = '';
-          //
-          //   throttle(() => {
-          //     loadSearchPagesByAuthor(blogPage, userInput).then((data) => {
-          //       const div = document.createElement('div');
-          //       div.innerHTML = blog.createList(data);
-          //       const list = document.querySelector('.section__blog-list');
-          //       list.innerHTML = '';
-          //       list.appendChild(div);
-          //     });
-          //   }, 500)
-          // });
-          //
 
           inputs.forEach((input) => {
             input.addEventListener('click', function () {

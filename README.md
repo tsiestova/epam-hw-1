@@ -60,6 +60,7 @@ npm run start
 
 12. Homework 12 
 
+-- Movie filter (js/movie-search.js, app.js)
 -- title validation (js/components/page-blog.js)
 -- google maps API (section Contacts of Main page) - (js/map.js)
 
