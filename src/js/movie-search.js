@@ -6,8 +6,6 @@ const COUNT_OF_STARS = 5;
 const month = ['jan', 'feb', 'mar', 'apr', 'may', 'jun',
     'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 
-let movieList;
-
 export const loadBlogPages = function (page) {
 
     return fetch(`${baseURL}/movie/popular?api_key=${APIKEY}&page=${page}`)
@@ -50,7 +48,6 @@ export const loadBlogPages = function (page) {
                     fetch(`${baseURL}/movie/${item.id}?api_key=${APIKEY}&language=en-US`)
                         .then((data) => data.json())
                         .then((data) => {
-                            console.log(item.id);
                             item.runtime = data.runtime;
                             let result = '';
                             switch (item.type) {
@@ -140,7 +137,6 @@ export const loadSearchPagesByAuthor = function (page, value) {
     )
         .then((result) => result.json())
         .then((data) => {
-            console.log(data.results);
 
             return data.results
 
@@ -197,6 +193,3 @@ export const loadSearchPagesByAuthor = function (page, value) {
         });
 
 };
-
-
-

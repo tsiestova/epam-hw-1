@@ -18,6 +18,13 @@ import {
   loadSearchPagesByAuthor
 } from "./movie-search";
 
+const throttle = (cb, time) => {
+  clearTimeout(window.throttleTimout);
+  window.throttleTimout = setTimeout(() => {
+    cb();
+  }, time);
+};
+
 document.addEventListener("DOMContentLoaded", function (event) {
   const applicationContainer = document.getElementById("app");
   const navigation = new Navigation(data.nav);
@@ -83,8 +90,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
           let localStorageTitle = localStorage.getItem('title');
           let localStorageAuthor = localStorage.getItem('author');
 
-          localStorageTitle ? searchByTitle.value = localStorageTitle : searchByAuthor.value = localStorageAuthor;
-
           form.addEventListener('submit', (e) => {
             e.preventDefault();
           })
@@ -131,7 +136,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }, 500)
           });
 
-
           searchByAuthor.addEventListener('input', (e) => {
             blogPage = 1;
             const target = e.target;
@@ -174,6 +178,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }, 500)
           });
 
+          if(localStorageTitle) {
+            searchByTitle.value = localStorageTitle
+            searchByTitle.dispatchEvent(new Event('input'));
+          }else {
+            searchByAuthor.value = localStorageAuthor
+            searchByAuthor.dispatchEvent(new Event('input'));
+          }
 
           inputs.forEach((input) => {
             input.addEventListener('click', function () {
@@ -221,13 +232,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     });
             }
           });
-
-          const throttle = (cb, time) => {
-            clearTimeout(window.throttleTimout);
-            window.throttleTimout = setTimeout(() => {
-              cb();
-            }, time);
-          };
         });
 
         break;
