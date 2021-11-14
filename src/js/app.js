@@ -11,6 +11,7 @@ import { Blog } from "./components/page-blog/page-blog";
 import { Article } from "./components/page-post/page-post";
 import data from "./data.json";
 import {sliderPortfolio, sliderTestimonials} from "./sliderES5";
+
 import {initMap} from "./map";
 import {
   loadBlogPages,

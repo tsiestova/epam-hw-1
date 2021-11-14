@@ -35,6 +35,11 @@ export const loadBlogPages = function (page) {
                         href: "#",
                         type: "btn",
                     },
+                    buttonDelete: {
+                        title: "Delete post",
+                        href: "#",
+                        type: "btn btn-delete"
+                    },
                     data: {
                         time: dataStr,
                         minuts: "10",
@@ -103,6 +108,11 @@ export const loadSearchPagesByTitle = function (page, value) {
                             href: "#",
                             type: "btn",
                         },
+                        buttonDelete: {
+                            title: "Delete post",
+                            href: "#",
+                            type: "btn btn-delete"
+                        },
                         data: {
                             time: dataStr,
                             minuts: '',
@@ -163,6 +173,11 @@ export const loadSearchPagesByAuthor = function (page, value) {
                            title: "Read more",
                            href: "#",
                            type: "btn",
+                       },
+                       buttonDelete: {
+                           title: "Delete post",
+                           href: "#",
+                           type: "btn btn-delete"
                        },
                        data: {
                            time: dataStr,

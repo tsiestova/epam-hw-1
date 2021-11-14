@@ -108,6 +108,17 @@ export class Blog {
                             <a href="${obj.button.href}" class="${
             obj.button.type
         }">${obj.button.title}</a>
+                            
+                            <div class="section__blog-item_button-wrap">
+                             
+                               <a href="${obj.button.href}" class="${
+        obj.button.type
+    }">${obj.button.title}</a>
+                               
+                            <a href="${obj.buttonDelete.href}" id="button-delete-post" class="${
+        obj.buttonDelete.type
+    }">${obj.buttonDelete.title}</a>
+</div>
                         </div>
                     </li>`;
     }

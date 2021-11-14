@@ -245,9 +245,17 @@ audio {
   }
 }
 
-[data-value="blog__input-search"]::-webkit-search-decoration,
-[data-value="blog__input-search"]::-webkit-search-cancel-button,
-[data-value="blog__input-search"]::-webkit-search-results-button,
-[data-value="blog__input-search"]::-webkit-search-results-decoration {
-  display: none;
+.section__blog-item_button-wrap {
+  .btn {
+    margin-right: 10px;
+  }
+}
+
+.btn-delete {
+  color: red;
+  border: 1px solid red;
+
+  &:hover {
+    background: red;
+  }
 }

@@ -194,6 +194,11 @@
           "href": "#",
           "type": "btn"
         },
+        "buttonDelete": {
+          "title": "Delete post",
+          "href": "#",
+          "type": "btn btn-delete"
+        },
         "data": {
           "time": "2019-10-20",
           "minuts": "10",
@@ -215,6 +220,11 @@
           "title": "Read more",
           "href": "#",
           "type": "btn"
+        },
+        "buttonDelete": {
+          "title": "Delete post",
+          "href": "#",
+          "type": "btn btn-delete"
         },
         "data": {
           "time": "02 oct, 2019",
@@ -238,6 +248,11 @@
           "href": "#",
           "type": "btn"
         },
+        "buttonDelete": {
+          "title": "Delete post",
+          "href": "#",
+          "type": "btn btn-delete"
+        },
         "data": {
           "time": "23 sep, 2019",
           "minuts": "16",
@@ -257,6 +272,11 @@
           "title": "Read more",
           "href": "#",
           "type": "btn"
+        },
+        "buttonDelete": {
+          "title": "Delete post",
+          "href": "#",
+          "type": "btn btn-delete"
         },
         "data": {
           "time": "11 Aug, 2019",
