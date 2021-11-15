@@ -1,4 +1,4 @@
-$('#item');
+import * as $ from 'jquery'
 
 $(function() {
   $.fn.showModal = function(params) {
@@ -42,7 +42,15 @@ $(function() {
 
     const modal = $('#modal-window');
     const btnCloseModal = $('#modal-button_close');
-    const mainContainer = $('#main-container');
+    const mainContainer = $('#app');
+    let winH = $(window).height();
+    let winW = $(window).width();
+
+    $(modal).css({
+      'position': 'fixed',
+      'top': parseInt((winH / 2.5) - (modal.height() / 2), 10),
+      'left': parseInt((winW / 2) - (modal.width() / 2), 10),
+    });
 
     modal.addClass(deriveClassByType(params.type));
 
@@ -61,6 +69,7 @@ $(function() {
     });
 
     mainContainer.addClass('blur');
+
     $('body').css('overflow', 'hidden');
 
     const hideModal = () => {
@@ -97,9 +106,31 @@ $(function() {
   };
 
 
-  $('#button-delete-post').on('click', (event) => {
+  $( window ).on( 'hashchange', function( e ) {
+    if (window.location.hash === '#blog') {
+      setTimeout(() => {
+        $('#subscribe-window-content').showModal({
+          type: 'info',
+          actions: [
+            {
+              title: 'ok',
+              handler: () => alert('Movie removed'),
+            },
+            {
+              title: 'cancel',
+            },
+          ],
+        })
+      }, 10000)
+
+    }
+  } );
+
+  $(document).on('click', '#button-delete-post', (event) => {
+    event.preventDefault();
+
     $('#delete-window-content').showModal({
-      type: 'info',
+      type: 'error',
       actions: [
         {
           title: 'ok',
@@ -111,4 +142,5 @@ $(function() {
       ],
     });
   });
+
 });

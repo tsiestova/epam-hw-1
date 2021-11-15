@@ -6,7 +6,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: ['./src/jQuery-plugin/plugin.js', './src/js/app.js',
+  entry: ['./src/js/app.js',
     './src/scss/style.scss'],
   devtool: 'inline-source-map',
   devServer: {
@@ -53,10 +53,6 @@ module.exports = {
       title: 'post',
       filename: 'post.html',
       template: 'src/post.html',
-    }),
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
     }),
     new HtmlWebpackPlugin({
       title: 'blog',

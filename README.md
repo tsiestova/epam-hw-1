@@ -67,4 +67,13 @@ npm run start
   [Blog page](http://localhost:8080/main.html#blog)
   [github](https://github.com/tsiestova/epam-hw-1/tree/HW_12) 
 
+13. Homework 13
+
+--GIT
+[github](https://github.com/tsiestova/epam_fe_2021_Siestova)
+
 14. Homework 14
+
+--jQuery plugin that add a modal window
+    [Blog page](http://localhost:8080/main.html#blog)
+    [github](https://github.com/tsiestova/epam-hw-1/tree/HW_14)

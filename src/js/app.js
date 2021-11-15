@@ -11,7 +11,8 @@ import { Blog } from "./components/page-blog/page-blog";
 import { Article } from "./components/page-post/page-post";
 import data from "./data.json";
 import {sliderPortfolio, sliderTestimonials} from "./sliderES5";
-
+import * as $ from 'jquery'
+import './jQuery-plugin/plugin'
 import {initMap} from "./map";
 import {
   loadBlogPages,
@@ -78,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     cleanUp();
     switch (href) {
       case "#blog":
+
         blogPage = 1;
 
         loadBlogPages(blogPage).then((data) => {
@@ -221,6 +223,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                         const list = document.querySelector('.section__blog-list');
                         list.appendChild(div);
                       });
+
                 break;
 
               default:
