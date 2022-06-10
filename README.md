@@ -1,3 +1,6 @@
+******** In order to open the below links you need to start the server locally
+
+
 # epam-hw-1
 homework
 
